@@ -1,14 +1,24 @@
 fileFormatVersion: 2
-guid: c287c1eeb587a5b4397231e9af54ca88
+guid: b46e9149eced6ee4cb0e7e45b2bc3815
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: HouseSmall
+    100004: HouseSmallRoof
     400000: //RootNode
+    400002: HouseSmall
+    400004: HouseSmallRoof
     2100000: HouseSmallRoof_Mat
-    2300000: //RootNode
-    3300000: //RootNode
+    2100002: HouseSmall_Mat
+    2300000: HouseSmall
+    2300002: HouseSmallRoof
+    2300004: //RootNode
+    3300000: HouseSmall
+    3300002: HouseSmallRoof
+    3300004: //RootNode
     4300000: HouseSmallRoof
+    4300002: HouseSmall
   externalObjects: {}
   materials:
     importMaterials: 1

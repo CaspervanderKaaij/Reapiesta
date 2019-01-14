@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4101041566681072}
   - component: {fileID: 33675892775067550}
   - component: {fileID: 23837960679591806}
+  - component: {fileID: 65104315142033936}
   m_Layer: 0
   m_Name: BuildingBigRoof
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4476591570214362}
   - component: {fileID: 33279960386602572}
   - component: {fileID: 23101933708936048}
+  - component: {fileID: 65945361660481068}
   m_Layer: 0
   m_Name: BuildingBig
   m_TagString: Untagged
@@ -80,14 +82,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228327323126888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.2, y: 0, z: 41.1}
+  m_LocalPosition: {x: 4.21, y: 0, z: -26.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4476591570214362}
   - {fileID: 4101041566681072}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 96.892006, z: 0}
 --- !u!4 &4476591570214362
 Transform:
   m_ObjectHideFlags: 1
@@ -151,7 +153,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 71bb7f9b08fba7c46879836bc32c3a5e, type: 2}
+  - {fileID: 2100000, guid: 7c9129eeba71bee4e83ea2becbb45adc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,3 +187,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043672393254744}
   m_Mesh: {fileID: 4300000, guid: 2236b6844ac33f94496df44fa5930613, type: 3}
+--- !u!65 &65104315142033936
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043672393254744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.351037, y: 0.42563963, z: 10.351037}
+  m_Center: {x: -0.000015258789, y: 3.2128198, z: 0}
+--- !u!65 &65945361660481068
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165178091979504}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000002, y: 3, z: 10.000002}
+  m_Center: {x: -0.000015258789, y: 1.5, z: 0}
