@@ -14,8 +14,11 @@ public class SensField : MonoBehaviour
             }
             else
             {
+                print("the player enters the area");
                 transform.parent.gameObject.GetComponent<Range>().target = other.transform.position;
             }
+            transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.chasing;
+            transform.parent.gameObject.GetComponent<Ground>().target = other.transform.position;
         }
     }
 
@@ -29,8 +32,24 @@ public class SensField : MonoBehaviour
             }
             else
             {
+                print("I see the player");
                 transform.parent.gameObject.GetComponent<Range>().target = other.transform.position;
+                transform.parent.gameObject.GetComponent<Range>().Attack();
             }
+            transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.chasing;
+            transform.parent.gameObject.GetComponent<Ground>().target = other.transform.position;
+
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == "Player")
+        {
+            // set the moveState to idle
+            transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.idle;
+            // set the target to it self
+            transform.parent.gameObject.GetComponent<Ground>().target = transform.position;
         }
     }
 }

@@ -4,12 +4,15 @@ using UnityEngine;
 public class Range : GeneralEnemyCode
 {
     Transform player;
+    Transform throwPos;
     public Vector3 target;
     float mintargetDist;
     [SerializeField] float forceAmount;
     public RangeStats rangeStats;
     public override void Start()
     {
+        anim = GetComponent<Animator>();
+        throwPos = transform.GetChild(0);
         //player = GameObject.FindGameObjectWithTag("Player").transform;
         currentTime = rangeStats.attackSpeed;
         mintargetDist = rangeStats.mintargetDist;
@@ -20,26 +23,15 @@ public class Range : GeneralEnemyCode
         Timer(rangeStats.attackSpeed);
         CheckDist(target, targetDist, GetComponent<Ground>().moveState);
     }
-    void OnTriggerEnter(Collider other)
+    public void Attack()
     {
-        if (other.transform.tag == "Player")
-        {
-            target = other.transform.position;
-        }
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.transform.tag == "Player")
-        {
-            target = other.transform.position;
-            Timer(rangeStats.attackSpeed);
-        }
+        Timer(rangeStats.attackSpeed);
+        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"),1f,Time.deltaTime * 2));
     }
 
     public override void Action()
     {
-        Transform newBottle = Instantiate(rangeStats.bottle, transform.position, transform.rotation);
+        Transform newBottle = Instantiate(rangeStats.bottle, throwPos.position, throwPos.rotation);
         Rigidbody addRigid = newBottle.GetComponent<Rigidbody>();
         addRigid.velocity = (target - transform.position).normalized * forceAmount;
         addRigid.rotation = Quaternion.LookRotation(addRigid.velocity);

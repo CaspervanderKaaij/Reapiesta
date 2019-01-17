@@ -264,7 +264,7 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 61194362887a41840b5653cc81dd8028, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   team: 1
+  destroyOnHit: 1
 --- !u!136 &136882958355031376
 CapsuleCollider:
   m_ObjectHideFlags: 1

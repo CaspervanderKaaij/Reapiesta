@@ -13,10 +13,11 @@ public class BaseStats : ScriptableObject
     public WaveMovement waveMovement;
     public EnemyAttack enemyAttack;
     [Header("SphereCollider")]
+    public LayerMask layerSensfield;
     public float viewRadius;
     public bool isTrigger;
     [Header("///")]
-    public string tag;
     public LayerMask layer;
+    public string tag;
     public int health;
 }

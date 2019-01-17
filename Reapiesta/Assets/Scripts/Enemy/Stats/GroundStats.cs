@@ -7,4 +7,5 @@ public class GroundStats : ScriptableObject
 {
     public float walkSpeed;
     public float runSpeed;
+    public float mintargetDist;
 }

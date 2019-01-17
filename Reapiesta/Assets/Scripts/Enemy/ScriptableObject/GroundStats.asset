@@ -8,8 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 106c20de2bf74ed4ca3ff34adfc92e42, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f341114073f1944d829ec0faae93f17, type: 3}
   m_Name: GroundStats
   m_EditorClassIdentifier: 
-  walkSpeed: 4
-  runSpeed: 6
+  walkSpeed: 2
+  runSpeed: 4
+  mintargetDist: 0.1

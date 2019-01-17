@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1297236022390424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75.03, y: 0.2, z: 54.95}
+  m_LocalPosition: {x: 38.803604, y: 0, z: 31.588703}
   m_LocalScale: {x: 4.8116, y: 0.44015193, z: 4.8116}
   m_Children:
   - {fileID: 4497547375466066}
@@ -225,14 +225,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297236022390424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ca1ca118ee37d41b23639abd5df49d, type: 3}
+  m_Script: {fileID: 11500000, guid: bfa27741e404ed64c92c7fffbc4f319b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minRadius: 10
   maxRadius: 20
-  enemy: {fileID: 1032222954792646, guid: e0353c5005b52f24bb4b46c7fb282951, type: 2}
-  amountofEnemies: 5
-  baseStats: {fileID: 11400000, guid: 4cdcb22edb0cfee4db1efbfe68607367, type: 2}
+  enemy: {fileID: 0}
+  amountofEnemies: 1
+  baseStats: {fileID: 11400000, guid: e8d2c42ba83089f4b9365e1925f5233a, type: 2}
 --- !u!114 &114933694040164376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,10 +241,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297236022390424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea64c3b618d7cb4f98d84df8bbe170a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a8af8ab461822d4990d99efeab7bce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundStats: {fileID: 11400000, guid: bd448a03057b57845a1e5a765dac89e9, type: 2}
-  flyingStats: {fileID: 11400000, guid: 280dcd3ae1329244daa4aeea667fc1f6, type: 2}
-  meleeStats: {fileID: 11400000, guid: b28d8e948c07e2645ac8c718274199be, type: 2}
-  rangeStats: {fileID: 11400000, guid: 22063336737de7e4c8929a43e7913236, type: 2}
+  groundStats: {fileID: 11400000, guid: 22def65fb582feb4b8461f8afc16f4ea, type: 2}
+  flyingStats: {fileID: 11400000, guid: 09825c71c4059e14f905cd833b40c84d, type: 2}
+  meleeStats: {fileID: 11400000, guid: fc385b19aaf0f0a4e8f9c1dd5e1df867, type: 2}
+  rangeStats: {fileID: 11400000, guid: 9fd2476e94380b7479c6e474eccea6ea, type: 2}

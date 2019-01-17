@@ -8,16 +8,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeba62b7f31a2c64d80b7cb61b48455a, type: 3}
+  m_Script: {fileID: 11500000, guid: cc30cd8db19ff904e9c5962a5549e085, type: 3}
   m_Name: BaseStats_2
   m_EditorClassIdentifier: 
   enemyMovement: 0
   waveMovement: 0
   enemyAttack: 0
+  layerSensfield:
+    serializedVersion: 2
+    m_Bits: 1024
   viewRadius: 15
   isTrigger: 1
-  tag: Enemy
   layer:
     serializedVersion: 2
     m_Bits: 512
+  tag: Enemy
   health: 5

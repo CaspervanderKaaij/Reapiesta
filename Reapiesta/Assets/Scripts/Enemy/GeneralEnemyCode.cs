@@ -9,11 +9,10 @@ public class GeneralEnemyCode : MonoBehaviour
     public float currentTime;
     public bool action;
     public float targetDist;
-	public Animator anim;
+    public Animator anim;
 
     public virtual void Start()
     {
-		anim = GetComponent<Animator>();
         //empty
     }
 
@@ -29,9 +28,10 @@ public class GeneralEnemyCode : MonoBehaviour
         if (targetDist < minDist && state == MoveState.chasing)
         {
             action = true;
-            GetComponent<Ground>().groundAgent.isStopped = true;
             // when your distance is close enough stop 
+            GetComponent<Ground>().groundAgent.isStopped = true;
             // change state to attcking
+            GetComponent<Ground>().moveState = MoveState.attacking;
         }
         else
         {

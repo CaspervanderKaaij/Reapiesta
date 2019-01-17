@@ -1,16 +1,31 @@
 fileFormatVersion: 2
-guid: bf84ec3afddc5ba4b9616c57184ae504
+guid: 33c7eeb283f855846a32812df8c8bfc5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: //RootNode
+    100002: Reaper_low
+    100004: ReaperHourglass_low
+    100006: ReaperLantern_low
+    100008: ReaperSombrero_low
+    400000: //RootNode
+    400002: Reaper_low
+    400004: ReaperHourglass_low
+    400006: ReaperLantern_low
+    400008: ReaperSombrero_low
+    2100000: Reaper
+    2300000: Reaper_low
+    2300002: ReaperHourglass_low
+    2300004: ReaperLantern_low
+    2300006: ReaperSombrero_low
+    3300000: Reaper_low
+    3300002: ReaperHourglass_low
+    3300004: ReaperLantern_low
+    3300006: ReaperSombrero_low
+    4300000: ReaperSombrero_low
+    4300002: ReaperHourglass_low
+    4300004: ReaperLantern_low
+    4300006: Reaper_low
   externalObjects: {}
   materials:
     importMaterials: 1
