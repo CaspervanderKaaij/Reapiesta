@@ -14,7 +14,7 @@ public class SensField : MonoBehaviour
             }
             else
             {
-                print("the player enters the area");
+              //  print("the player enters the area");
                 transform.parent.gameObject.GetComponent<Range>().target = other.transform.position;
             }
             transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.chasing;
@@ -32,7 +32,7 @@ public class SensField : MonoBehaviour
             }
             else
             {
-                print("I see the player");
+               // print("I see the player");
                 transform.parent.gameObject.GetComponent<Range>().target = other.transform.position;
                 transform.parent.gameObject.GetComponent<Range>().Attack();
             }

@@ -129,15 +129,17 @@ public class PlayerFunctions : MonoBehaviour
         ghostText.GetComponent<Text>().text = ghostAmount.ToString();
         if (ghostAmount >= ghostToKill)
         {
+            //StaticFunctions.PlayAudio(8, true);
             StartCoroutine(CheckEndState());
         }
     }
 
     IEnumerator CheckEndState()
     {
+        hurtbox.SetActive(false);
         StaticFunctions.paused = true;
-        // endBack.color = Color.Lerp(endBack.color,Color.white,Time.unscaledDeltaTime * 10);
         Time.timeScale = 0.1f;
+        yield return new WaitForSecondsRealtime(1.5f);
         hasEnded = true;
         yield return new WaitForSecondsRealtime(1.5f);
         endBack.color = Color.white;
@@ -155,6 +157,8 @@ public class PlayerFunctions : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
         endObjects[6].SetActive(true);
         yield return new WaitForSecondsRealtime(5);
+        endObjects[7].SetActive(true);
+        yield return new WaitForSecondsRealtime(2);
         StaticFunctions.paused = false;
         Time.timeScale = 1;
         StaticFunctions.LoadScene(0);
