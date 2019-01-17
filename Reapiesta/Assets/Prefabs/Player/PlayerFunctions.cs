@@ -99,6 +99,15 @@ public class PlayerFunctions : MonoBehaviour
     [SerializeField]
     Transform ghostText;
     int ghostAmount;
+    [SerializeField]
+    int ghostToKill = 3;
+
+    [Header("EndScene")]
+    [SerializeField]
+    Image endBack;
+    [SerializeField]
+    GameObject[] endObjects;
+    bool hasEnded = false;
 
     public void UpdateAnimations()
     {
@@ -116,13 +125,55 @@ public class PlayerFunctions : MonoBehaviour
 
     public void GhostPot(int ghost)
     {
-        ghostAmount = ghostAmount + ghost;
+        ghostAmount++;
         ghostText.GetComponent<Text>().text = ghostAmount.ToString();
+        if (ghostAmount >= ghostToKill)
+        {
+            StartCoroutine(CheckEndState());
+        }
+    }
+
+    IEnumerator CheckEndState()
+    {
+        StaticFunctions.paused = true;
+        // endBack.color = Color.Lerp(endBack.color,Color.white,Time.unscaledDeltaTime * 10);
+        Time.timeScale = 0.1f;
+        hasEnded = true;
+        yield return new WaitForSecondsRealtime(1.5f);
+        endBack.color = Color.white;
+        endObjects[1].SetActive(true);
+        endObjects[3].SetActive(true);
+        yield return new WaitForSecondsRealtime(4.5f);
+        Time.timeScale = 0;
+        endObjects[0].SetActive(true);
+        yield return new WaitForSecondsRealtime(2);
+        endObjects[2].SetActive(true);
+        yield return new WaitForSecondsRealtime(3);
+        endObjects[4].SetActive(true);
+        yield return new WaitForSecondsRealtime(1);
+        endObjects[5].SetActive(true);
+        yield return new WaitForSecondsRealtime(2);
+        endObjects[6].SetActive(true);
+        yield return new WaitForSecondsRealtime(5);
+        StaticFunctions.paused = false;
+        Time.timeScale = 1;
+        StaticFunctions.LoadScene(0);
+
     }
 
     public void LateUpdate()
     {
+        CheckForEndState();
         latePos = transform.position;
+    }
+
+    void CheckForEndState()
+    {
+
+        if (hasEnded == true)
+        {
+            endBack.color = Color.Lerp(endBack.color, Color.white, Time.unscaledDeltaTime);
+        }
     }
 
     public void StartSkateBoard()
