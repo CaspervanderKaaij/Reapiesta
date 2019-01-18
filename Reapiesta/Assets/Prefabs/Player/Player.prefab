@@ -6318,7 +6318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalScale: {x: 1000, y: 1000, z: 1000}
-  speed: 1
+  speed: 5
 --- !u!114 &114218243945471346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6534,7 +6534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalScale: {x: 1, y: 1, z: 1}
-  speed: 1
+  speed: 5
 --- !u!114 &114268042589655656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6603,7 +6603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalScale: {x: 1, y: 1, z: 1}
-  speed: 1
+  speed: 5
 --- !u!114 &114304239051646776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7973,7 +7973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalScale: {x: 1, y: 1, z: 1}
-  speed: 1
+  speed: 5
 --- !u!114 &114839623445045346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8238,7 +8238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalScale: {x: 1, y: 1, z: 1}
-  speed: 1
+  speed: 5
 --- !u!114 &114933387549401460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8431,7 +8431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalScale: {x: 1, y: 1, z: 1}
-  speed: 1
+  speed: 5
 --- !u!119 &119123307600370316
 Projector:
   m_ObjectHideFlags: 1
@@ -37458,7 +37458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 549, y: -316.19}
+  m_AnchoredPosition: {x: 543, y: -322}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224920953050886128
