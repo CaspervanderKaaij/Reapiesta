@@ -7,7 +7,7 @@ public class PlayerHitbox : Hitbox
 {
     [SerializeField] GameObject deathUI;
     [SerializeField] GameObject gameOverUI;
-    [SerializeField] uint livesAfterDeath = 10;
+    [SerializeField] uint livesAfterDeath = 5;
     PostProcessingBehaviour pp;
 
     void Start()
@@ -80,7 +80,9 @@ public class PlayerHitbox : Hitbox
         Time.timeScale = 1;
         StaticFunctions.paused = false;
         StaticFunctions.PlayAudio(13,false);
-        StaticFunctions.LoadScene(true);
+        StaticFunctions.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         pp.profile.colorGrading.enabled = false;
     }
 

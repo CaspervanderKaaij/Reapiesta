@@ -121,6 +121,7 @@ public class PlayerFunctions : MonoBehaviour
         cam = Camera.main.GetComponent<Cam>();
         curAnim = Animation.Idle;
         anim.runtimeAnimatorController = controller;
+        Cursor.visible = false;
     }
 
     public void GhostPot(int ghost)
@@ -162,6 +163,8 @@ public class PlayerFunctions : MonoBehaviour
         StaticFunctions.paused = false;
         Time.timeScale = 1;
         StaticFunctions.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
     }
 

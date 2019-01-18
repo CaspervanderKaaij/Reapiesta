@@ -10,6 +10,8 @@ public class MMNewGame : MenuButton
     [SerializeField] GameObject loadingObj;
     [SerializeField] Text loadingText;
     [SerializeField] GameObject loadingCircle;
+    [SerializeField]
+    int sceneToLoad = 0;
 
     void Start()
     {
@@ -36,7 +38,7 @@ public class MMNewGame : MenuButton
     IEnumerator SceneLoader()
     {
         //it loads in the background, then when you click, insta load!
-        AsyncOperation async = SceneManager.LoadSceneAsync(0);
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneToLoad);
         while (!async.isDone)
         {
             if (Input.GetButtonDown("Attack") == true)
