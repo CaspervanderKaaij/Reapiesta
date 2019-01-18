@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: 0978a637e210e3546a20132dd758f8d1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Barrel_low
+    100002: borrelnootjes _low
+    100004: Bowl_low
+    100006: Box_low
+    100008: CandleVar1_low
+    100010: CandleVar2_low
+    100012: CandleVar3_low
+    100014: CandleVar4_low
+    100016: LanternGlassVar1L
+    100018: LanternGlassVar2L
+    100020: LanternVar1Handles_low
+    100022: LanternVar1Hinges_low
+    100024: LanternVar1Pole_low
+    100026: LanternVar2Handles_low
+    100028: LanternVar2Hinges_low
+    100030: LanternVar2Pole_low
+    100032: Plate_low
+    100034: //RootNode
+    100036: WineBottleVar1_low
+    100038: WineBottleVar2_low
+    100040: WineBottleVar3_low.
+    100042: Winecrate_low
+    400000: Barrel_low
+    400002: borrelnootjes _low
+    400004: Bowl_low
+    400006: Box_low
+    400008: CandleVar1_low
+    400010: CandleVar2_low
+    400012: CandleVar3_low
+    400014: CandleVar4_low
+    400016: LanternGlassVar1L
+    400018: LanternGlassVar2L
+    400020: LanternVar1Handles_low
+    400022: LanternVar1Hinges_low
+    400024: LanternVar1Pole_low
+    400026: LanternVar2Handles_low
+    400028: LanternVar2Hinges_low
+    400030: LanternVar2Pole_low
+    400032: Plate_low
+    400034: //RootNode
+    400036: WineBottleVar1_low
+    400038: WineBottleVar2_low
+    400040: WineBottleVar3_low.
+    400042: Winecrate_low
+    2100000: WineBottles
+    2100002: Barrel
+    2100004: PlateAndBowl
+    2100006: Winecrate
+    2100008: Box
+    2100010: Candle
+    2100012: Glass
+    2100014: LanternVar1
+    2100016: Lantern2
+    2300000: Barrel_low
+    2300002: borrelnootjes _low
+    2300004: Bowl_low
+    2300006: Box_low
+    2300008: CandleVar1_low
+    2300010: CandleVar2_low
+    2300012: CandleVar3_low
+    2300014: CandleVar4_low
+    2300016: LanternGlassVar1L
+    2300018: LanternGlassVar2L
+    2300020: LanternVar1Handles_low
+    2300022: LanternVar1Hinges_low
+    2300024: LanternVar1Pole_low
+    2300026: LanternVar2Handles_low
+    2300028: LanternVar2Hinges_low
+    2300030: LanternVar2Pole_low
+    2300032: Plate_low
+    2300034: WineBottleVar1_low
+    2300036: WineBottleVar2_low
+    2300038: WineBottleVar3_low.
+    2300040: Winecrate_low
+    3300000: Barrel_low
+    3300002: borrelnootjes _low
+    3300004: Bowl_low
+    3300006: Box_low
+    3300008: CandleVar1_low
+    3300010: CandleVar2_low
+    3300012: CandleVar3_low
+    3300014: CandleVar4_low
+    3300016: LanternGlassVar1L
+    3300018: LanternGlassVar2L
+    3300020: LanternVar1Handles_low
+    3300022: LanternVar1Hinges_low
+    3300024: LanternVar1Pole_low
+    3300026: LanternVar2Handles_low
+    3300028: LanternVar2Hinges_low
+    3300030: LanternVar2Pole_low
+    3300032: Plate_low
+    3300034: WineBottleVar1_low
+    3300036: WineBottleVar2_low
+    3300038: WineBottleVar3_low.
+    3300040: Winecrate_low
+    4300000: WineBottleVar1_low
+    4300002: WineBottleVar2_low
+    4300004: WineBottleVar3_low.
+    4300006: Barrel_low
+    4300008: Plate_low
+    4300010: Bowl_low
+    4300012: borrelnootjes _low
+    4300014: Winecrate_low
+    4300016: Box_low
+    4300018: CandleVar1_low
+    4300020: CandleVar2_low
+    4300022: CandleVar3_low
+    4300024: CandleVar4_low
+    4300026: LanternGlassVar1L
+    4300028: LanternVar1Pole_low
+    4300030: LanternVar1Handles_low
+    4300032: LanternVar1Hinges_low
+    4300034: LanternVar2Pole_low
+    4300036: LanternGlassVar2L
+    4300038: LanternVar2Handles_low
+    4300040: LanternVar2Hinges_low
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
