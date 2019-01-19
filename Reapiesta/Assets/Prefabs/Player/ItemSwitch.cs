@@ -7,14 +7,21 @@ public class ItemSwitch : MonoBehaviour
 {
 
     public int curItem = 0;
-    [SerializeField] Text ui;
-    [SerializeField] ScytheThrow special;
-    [SerializeField] int specialDisable = 0;
+    [SerializeField]
+    Text ui;
+    [SerializeField]
+    ScytheThrow special;
+    [SerializeField]
+    int specialDisable = 0;
     bool scrollInUse = false;//this is used for controller input
     [SerializeField]
     int[] offsetType;
     Cam cam;
-    
+    [SerializeField]
+    Renderer[] weaponRends;
+    [SerializeField]
+    GameObject scytheBack;
+
 
     void Start()
     {
@@ -42,10 +49,12 @@ public class ItemSwitch : MonoBehaviour
             if (i == curItem)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
+                weaponRends[i].gameObject.SetActive(true);
             }
             else
             {
                 transform.GetChild(i).gameObject.SetActive(false);
+                weaponRends[i].gameObject.SetActive(false);
             }
         }
     }
@@ -101,6 +110,18 @@ public class ItemSwitch : MonoBehaviour
         {
             Scroll();
             ui.text = transform.GetChild(curItem).name;
+        }
+
+        if (special.curState == ScytheThrow.State.Disabled)
+        {
+            if (curItem == specialDisable)
+            {
+                scytheBack.SetActive(false);
+            }
+            else
+            {
+                scytheBack.SetActive(true);
+            }
         }
     }
 }

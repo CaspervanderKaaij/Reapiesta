@@ -216,11 +216,11 @@ public class PlayerFunctions : MonoBehaviour
             Instantiate(particleSkateChange, transform.position, Quaternion.Euler(90, 0, 0), transform);
             cam.MediumShake();
 
-            if (StaticFunctions.paused == false)
-            {
-                Time.timeScale = 0.5f;
-            }
-            Invoke("SetTimeBack", 0.1f);
+
+            moveV3 = new Vector3(0, jumpHeight / 1.5f, 0);
+            transform.position += new Vector3(0, 2.1f, 0);
+            moveV3 += transform.TransformDirection(0, 0, minSkateSpeed / 3f);
+
         }
     }
 

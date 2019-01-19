@@ -27,6 +27,8 @@ public class ScytheThrow : MonoBehaviour
     float anticipationTime = 0.3f;
     [SerializeField]
     float recoverTime = 0.1f;
+    [SerializeField]
+    GameObject scytheBack;
 
     void Start()
     {
@@ -116,6 +118,7 @@ public class ScytheThrow : MonoBehaviour
 
     void StartThrow()
     {
+        scytheBack.SetActive(false);
         lastPos = transform.position;
         for (int i = 0; i < rend.Count; i++)
         {
@@ -157,6 +160,7 @@ public class ScytheThrow : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, player.position) < 5)
         {
+            scytheBack.SetActive(true);
             StaticFunctions.PlayAudio(1, false);
             curState = State.Disabled;
             cam.SmallShake();
