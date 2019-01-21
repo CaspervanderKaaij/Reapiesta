@@ -26940,7 +26940,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1044984401243656}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   looping: 1
   prewarm: 0
@@ -31518,7 +31518,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1046042367924718}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   looping: 1
   prewarm: 0
