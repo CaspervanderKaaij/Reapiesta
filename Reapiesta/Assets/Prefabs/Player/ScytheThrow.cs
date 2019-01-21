@@ -74,13 +74,13 @@ public class ScytheThrow : MonoBehaviour
     void RayCollider()
     {
         RaycastHit hit;
-        if (Physics.Raycast(lastPos, lastPos - transform.position, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast")))
+        if (Physics.Raycast(lastPos, lastPos - transform.position, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger")))
         {
             curState = State.GoBack;
             StaticFunctions.PlayAudio(9, false);
             cam.SmallShake();
         }
-        else if (Physics.Raycast(transform.position, transform.position - lastPos, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast")))
+        else if (Physics.Raycast(transform.position, transform.position - lastPos, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger")))
         {
             curState = State.GoBack;
             StaticFunctions.PlayAudio(9, false);

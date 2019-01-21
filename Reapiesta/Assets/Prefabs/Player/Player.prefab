@@ -10231,7 +10231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32f5f884a682e742bff49364b4d2364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 40
   returnSpeed: 25
   range: 50
   curState: 0
@@ -10243,10 +10243,10 @@ MonoBehaviour:
   - {fileID: 23918815007174848}
   - {fileID: 23309828853248242}
   hurtbox: {fileID: 1294926896487810}
-  offset: {x: 0, y: 5, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   anticipationTime: 0.35
   recoverTime: 0.1
-  scytheBack: {fileID: 0}
+  scytheBack: {fileID: 1101437561683670}
 --- !u!114 &114676431971618394
 MonoBehaviour:
   m_ObjectHideFlags: 1
