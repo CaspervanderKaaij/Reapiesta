@@ -120,11 +120,11 @@ public class Cam : MonoBehaviour
     void Zooming()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (player.position - transform.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger")))
+        if (Physics.Raycast(transform.position, (player.position - transform.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
         {
             transform.position = hit.point;
         }
-        if (Physics.Raycast(player.position, (transform.position - player.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger")))
+        if (Physics.Raycast(player.position, (transform.position - player.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
         {
             transform.position = hit.point;
         }
