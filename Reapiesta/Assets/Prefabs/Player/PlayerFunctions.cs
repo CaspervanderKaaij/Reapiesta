@@ -436,7 +436,8 @@ public class PlayerFunctions : MonoBehaviour
         }
         for (int i = 0; i < dashEffects.Length; i++)
         {
-            dashEffects[i].SetActive(true);
+           // dashEffects[i].SetActive(true);
+           dashEffects[i].GetComponent<ParticleSystem>().Play();
         }
     }
 
@@ -444,7 +445,8 @@ public class PlayerFunctions : MonoBehaviour
     {
         for (int i = 0; i < dashEffects.Length; i++)
         {
-            dashEffects[i].SetActive(false);
+            //dashEffects[i].SetActive(false);
+            dashEffects[i].GetComponent<ParticleSystem>().Stop();
         }
         //   skateSpeed = minSkateSpeed / 3;
     }

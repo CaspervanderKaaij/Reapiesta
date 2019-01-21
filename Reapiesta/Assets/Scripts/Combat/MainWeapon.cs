@@ -17,10 +17,15 @@ public class MainWeapon : MonoBehaviour
     Transform camPos;
     RaycastHit hit;
     [SerializeField] float rayLenght;
+
+    //By Casper :D
+    [SerializeField] Transform player;
+    Cam cam;
     void Start()
     {
         camPos = Camera.main.transform;
         currentAmmoAmount = Clipsize;
+        cam = GameObject.FindObjectOfType<Cam>();
     }
 
     void Update()
@@ -47,6 +52,8 @@ public class MainWeapon : MonoBehaviour
         {
             if (currentAmmoAmount > 0)
             {
+                cam.SmallShake();
+                player.GetComponent<PlayerFunctions>().curState = PlayerFunctions.State.Attack;
                 //  subtract bullet
                 currentAmmoAmount--;
                 //	instantiate bullet
@@ -64,8 +71,8 @@ public class MainWeapon : MonoBehaviour
                 else
                 {
                     // move to the point you click
-                    addRigid.AddForce(transform.forward * forceAmount *250);
-                    
+                    addRigid.AddForce(Camera.main.transform.forward * forceAmount * 250);
+
                 }
             }
             if (currentAmmoAmount <= 0)
