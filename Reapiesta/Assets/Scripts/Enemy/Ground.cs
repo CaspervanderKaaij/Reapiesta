@@ -12,7 +12,10 @@ public class Ground : MonoBehaviour
     float mintargetDist;
     void Start()
     {
+        groundAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        mintargetDist = groundStats.mintargetDist;
+        moveState = MoveState.walking;
         if(GetComponent<Range>() != null)
         {
             anim.SetBool("Trow", true);
@@ -21,9 +24,6 @@ public class Ground : MonoBehaviour
         {
             anim.SetBool("Attack", true);
         }
-        mintargetDist = groundStats.mintargetDist;
-        moveState = MoveState.walking;
-        groundAgent = GetComponent<NavMeshAgent>();
     }
     void Update()
     {
@@ -37,7 +37,7 @@ public class Ground : MonoBehaviour
         {
             case MoveState.idle:
                 // set the currentMovement to idle speed
-                Idle();
+                Idle(target);
                 break;
             case MoveState.walking:
                 Walking();
@@ -50,7 +50,8 @@ public class Ground : MonoBehaviour
                 //set currentMovement speed to running speed
                 break;
             case MoveState.attacking:
-                Idle();
+            Vector3 newpos = transform.position;
+                Idle(newpos);
                 break;
         }
     }
@@ -61,9 +62,9 @@ public class Ground : MonoBehaviour
             moveState = MoveState.idle;
         }
     }
-    void Idle()
+    void Idle(Vector3 newTarget)
     {
-        groundAgent.SetDestination(target);
+        groundAgent.SetDestination(newTarget);
         //set a enemy to a position
         //play an animation
         anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"),0,Time.deltaTime * 2));

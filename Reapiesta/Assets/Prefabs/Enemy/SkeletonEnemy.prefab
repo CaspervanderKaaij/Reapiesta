@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4752600268980434}
   - component: {fileID: 33498822937611766}
   - component: {fileID: 23387692511217184}
+  - component: {fileID: 95173327436144058}
   - component: {fileID: 136674434137745290}
   - component: {fileID: 195632863953208162}
   - component: {fileID: 135725538751494114}
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032222954792646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70.03059, y: 1, z: 45.691444}
+  m_LocalPosition: {x: 47.81044, y: 1, z: 30.320267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4521814404672470}
@@ -92,7 +93,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b0ae9a5d2af5bfe49881b47a2ec6aaac, type: 3}
+  - {fileID: 2100002, guid: 2b11cad48dad2dc4c8d463b08c8ce3b3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,7 +154,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032384540919808}
-  m_Mesh: {fileID: 4300000, guid: b0ae9a5d2af5bfe49881b47a2ec6aaac, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3e2f670335e80e643b4ced8fa0467c5c, type: 3}
 --- !u!33 &33498822937611766
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -161,6 +162,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032222954792646}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &95173327436144058
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032222954792646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b84621e9e08e67459f077bbb6ee8b21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114100326516462242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHealth: 3
   team: 1
-  deathParticle: {fileID: 1582370337379788, guid: 0dacc0ff0597efe44975170021a01597,
+  deathParticle: {fileID: 1756606708361684, guid: b0cb0fab1abb2c142a77ad3e187d13ce,
     type: 2}
   hitParticle: {fileID: 1756606708361684, guid: 59209856748f33846827cb4e2b95f143,
     type: 2}

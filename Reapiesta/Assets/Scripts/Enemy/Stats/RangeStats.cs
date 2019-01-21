@@ -7,5 +7,5 @@ public class RangeStats : ScriptableObject
     public float mintargetDist;
     public float forceAmount;
     public float attackSpeed;
-    public Transform bottle;
+    public Transform[] bottle;
 }

@@ -31,7 +31,8 @@ public class Range : GeneralEnemyCode
 
     public override void Action()
     {
-        Transform newBottle = Instantiate(rangeStats.bottle, throwPos.position, throwPos.rotation);
+        var index = Random.Range(0, rangeStats.bottle.Length);
+        Transform newBottle = Instantiate(rangeStats.bottle[index], throwPos.position, throwPos.rotation);
         Rigidbody addRigid = newBottle.GetComponent<Rigidbody>();
         addRigid.velocity = (target - transform.position).normalized * forceAmount;
         addRigid.rotation = Quaternion.LookRotation(addRigid.velocity);

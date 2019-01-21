@@ -37,6 +37,7 @@ public class GeneralEnemyCode : MonoBehaviour
         {
             action = false;
             GetComponent<Ground>().groundAgent.isStopped = false;
+            GetComponent<Ground>().moveState = MoveState.chasing;
         }
     }
     public virtual void Timer(float time)

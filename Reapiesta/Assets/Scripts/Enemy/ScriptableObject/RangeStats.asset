@@ -11,7 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832e81414f938f144b87d51fab938ca6, type: 3}
   m_Name: RangeStats
   m_EditorClassIdentifier: 
-  mintargetDist: 7
+  mintargetDist: 10
   forceAmount: 25
   attackSpeed: 3
-  bottle: {fileID: 4136694905834022, guid: 67f02cd1e9fd1dd42b8fff6785504937, type: 2}
+  bottle:
+  - {fileID: 4253338269378662, guid: 672c9cb0e61d0eb49b72f81c027cb4d1, type: 2}
+  - {fileID: 4397697147807656, guid: 136bd844db58a2444b49269eab1a6b69, type: 2}
+  - {fileID: 4281952734109272, guid: 15f285ccf20b6d54d99ff8a72b6e69c8, type: 2}
