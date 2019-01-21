@@ -52,6 +52,17 @@ ModelImporter:
     100092: toe.R_end
     100094: upper_arm.L
     100096: upper_arm.R
+    100098: breast.L_end_end
+    100100: breast.R_end_end
+    100102: hand.L_end_end
+    100104: hand.R_end_end
+    100106: heel.02.L_end_end
+    100108: heel.02.R_end_end
+    100110: pelvis.L_end_end
+    100112: pelvis.R_end_end
+    100114: spine.006_end_end
+    100116: toe.L_end_end
+    100118: toe.R_end_end
     400000: Belt_low
     400002: breast.L
     400004: breast.L_end
@@ -101,6 +112,17 @@ ModelImporter:
     400092: toe.R_end
     400094: upper_arm.L
     400096: upper_arm.R
+    400098: breast.L_end_end
+    400100: breast.R_end_end
+    400102: hand.L_end_end
+    400104: hand.R_end_end
+    400106: heel.02.L_end_end
+    400108: heel.02.R_end_end
+    400110: pelvis.L_end_end
+    400112: pelvis.R_end_end
+    400114: spine.006_end_end
+    400116: toe.L_end_end
+    400118: toe.R_end_end
     2100000: Skeleton_Mat
     2100002: Reaper
     2300000: Belt_low
@@ -132,8 +154,19 @@ ModelImporter:
     7400014: metarig|ShootingAnimation.002
     7400016: metarig|Skateboarding.002
     7400018: metarig|ToAimPose.002
+    7400020: metarig|metarig|metarig|AimPose.002|metarig|AimPose.002
+    7400022: metarig|metarig|metarig|HopOnSkateboard.002|metarig|HopOnSkateboard.002
+    7400024: metarig|metarig|metarig|Idle.002|metarig|Idle.002
+    7400026: metarig|metarig|metarig|IdleToMove.002|metarig|IdleToMove.002
+    7400028: metarig|metarig|metarig|Jumping.002|metarig|Jumping.002
+    7400030: metarig|metarig|metarig|Moving.002|metarig|Moving.002
+    7400032: metarig|metarig|metarig|ShootingAnimation.000|metarig|ShootingAnimation
+    7400034: metarig|metarig|metarig|ShootingAnimation.002|metarig|ShootingAnimation
+    7400036: metarig|metarig|metarig|Skateboarding.002|metarig|Skateboarding.002
+    7400038: metarig|metarig|metarig|ToAimPose.002|metarig|ToAimPose.002
     9500000: //RootNode
     13700000: Skeleton
+    13700002: Robe_low
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
