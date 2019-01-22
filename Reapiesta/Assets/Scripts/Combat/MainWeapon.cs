@@ -23,6 +23,7 @@ public class MainWeapon : MonoBehaviour
     Cam cam;
     [SerializeField] PlayerFunctions pf;
     [SerializeField] GameObject muzzleFlash;
+    bool inSlowMo = false;
     void Start()
     {
         camPos = Camera.main.transform;
@@ -63,10 +64,50 @@ public class MainWeapon : MonoBehaviour
             pf.anim.SetFloat("Blend", 1);
         }
         //	when click shoot
-        if (Input.GetButtonDown("Attack") && IsInvoking("PlayerRot") == false)
+        if (Input.GetButtonDown("Attack") && IsInvoking("PlayerRot") == false && inSlowMo == false)
         {
             Invoke("ShootStuff", 0.1f);
             player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
+        }
+
+        if (Input.GetAxis("Throw") != 0 && IsInvoking("PlayerRot") == false &&
+        pf.grounded == false && StaticFunctions.paused == false && pf.curState == PlayerFunctions.State.SkateBoard && pf.stamina > 90
+        && pf.anim.GetCurrentAnimatorStateInfo(0).IsTag("Skate") == true)
+        {
+            Time.timeScale = 0.1f;
+            inSlowMo = true;
+        }
+        if (inSlowMo == true)
+        {
+            if (Input.GetAxis("Throw") == 0 && StaticFunctions.paused == false)
+            {
+                inSlowMo = false;
+                Time.timeScale = 1;
+            }
+            if (pf.grounded == true)
+            {
+                inSlowMo = false;
+                Time.timeScale = 1;
+            }
+            if (pf.curState != PlayerFunctions.State.SkateBoard)
+            {
+                inSlowMo = false;
+                Time.timeScale = 1;
+            }
+            if (Input.GetButtonDown("Attack") && IsInvoking("PlayerRot") == false)
+            {
+                Invoke("ShootStuff", 0.01f);
+                player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
+            }
+            if (pf.stamina > 0)
+            {
+                pf.stamina -= Time.deltaTime * 300;
+            }
+            else
+            {
+                inSlowMo = false;
+                Time.timeScale = 1;
+            }
         }
     }
 
@@ -76,13 +117,17 @@ public class MainWeapon : MonoBehaviour
         if (pf.curState != PlayerFunctions.State.SkateBoard)
         {
             pf.anim.Play("Shoot", 0, 0);
-        } else
+        }
+        else
         {
             pf.anim.Play("ShootSkate", 0, 0);
         }
-        Instantiate(muzzleFlash, barrelEnd.position, barrelEnd.rotation,barrelEnd);
+        Instantiate(muzzleFlash, barrelEnd.position, barrelEnd.rotation, barrelEnd);
         Invoke("PlayerRot", 0.25f);
-        cam.SmallShake();
+        if (inSlowMo == false)
+        {
+            cam.SmallShake();
+        }
         Transform newBullet = Instantiate(bullet, barrelEnd.position + (camPos.forward * 3), barrelEnd.rotation);
         Rigidbody addRigid = newBullet.GetComponent<Rigidbody>();
         // trigger the UIFunction
