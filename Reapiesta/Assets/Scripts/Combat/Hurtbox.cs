@@ -31,9 +31,7 @@ public class Hurtbox : MonoBehaviour
                 //Destroy(gameObject);
                 //  Debug.Log("Same team");
             }
-        }
-
-        if (bullet == true)
+        } else if (bullet == true && other.name != "Player")
         {
             Destroy(gameObject);
             Instantiate(hitParticle, transform.position, Quaternion.identity);

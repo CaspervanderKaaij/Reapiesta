@@ -22,6 +22,7 @@ public class MainWeapon : MonoBehaviour
     [SerializeField] Transform player;
     Cam cam;
     [SerializeField] PlayerFunctions pf;
+    [SerializeField] GameObject muzzleFlash;
     void Start()
     {
         camPos = Camera.main.transform;
@@ -64,40 +65,47 @@ public class MainWeapon : MonoBehaviour
         //	when click shoot
         if (Input.GetButtonDown("Attack") && IsInvoking("PlayerRot") == false)
         {
-            if (currentAmmoAmount > 0)
-            {
-                pf.anim.Play("Shoot", 0, 0);
-                Invoke("PlayerRot", 0.25f);
-                player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
-                cam.SmallShake();
-                //  player.GetComponent<PlayerFunctions>().curState = PlayerFunctions.State.Attack;
-                //  subtract bullet
-               // currentAmmoAmount--;
-                //	instantiate bullet
-                Transform newBullet = Instantiate(bullet, barrelEnd.position, barrelEnd.rotation);
-                Rigidbody addRigid = newBullet.GetComponent<Rigidbody>();
-                // trigger the UIFunction
-                UIFunction();
-                // if the raycast hit a thing
-                if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght))
-                {
-                    //	move to the point the raycast hit an object
-                  //  addRigid.velocity = (hit.point - transform.position).normalized * forceAmount;
-                  //  addRigid.rotation = Quaternion.LookRotation(addRigid.velocity);
-                  addRigid.transform.LookAt(hit.point);
-                  addRigid.AddForce(addRigid.transform.forward * forceAmount * 75);
-                }
-                else
-                {
-                    // move to the point you click
-                    addRigid.AddForce(Camera.main.transform.forward * forceAmount * 250);
+            Invoke("ShootStuff", 0.1f);
+            player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
+        }
+    }
 
-                }
-            }
-            if (currentAmmoAmount <= 0)
-            {
-                currentAmmoAmount = 0;
-            }
+    void ShootStuff()
+    {
+        player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
+        if (pf.curState != PlayerFunctions.State.SkateBoard)
+        {
+            pf.anim.Play("Shoot", 0, 0);
+        } else
+        {
+            pf.anim.Play("ShootSkate", 0, 0);
+        }
+        Instantiate(muzzleFlash, barrelEnd.position, barrelEnd.rotation,barrelEnd);
+        Invoke("PlayerRot", 0.25f);
+        cam.SmallShake();
+        Transform newBullet = Instantiate(bullet, barrelEnd.position + (camPos.forward * 3), barrelEnd.rotation);
+        Rigidbody addRigid = newBullet.GetComponent<Rigidbody>();
+        // trigger the UIFunction
+        UIFunction();
+        // if the raycast hit a thing
+        if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght))
+        {
+            //	move to the point the raycast hit an object
+            //  addRigid.velocity = (hit.point - transform.position).normalized * forceAmount;
+            //  addRigid.rotation = Quaternion.LookRotation(addRigid.velocity);
+            addRigid.transform.LookAt(hit.point);
+            addRigid.AddForce(addRigid.transform.forward * forceAmount * 75);
+        }
+        else
+        {
+            // move to the point you click
+            addRigid.AddForce(Camera.main.transform.forward * forceAmount * 250);
+
+        }
+
+        if (currentAmmoAmount <= 0)
+        {
+            currentAmmoAmount = 0;
         }
     }
 

@@ -160,6 +160,9 @@ public class PlayerController : MonoBehaviour
                 pf.moveV3.x = 0;
                 pf.moveV3.z = 0;
                 pf.FinalMove();
+                if(pf.anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")){
+                    pf.curState = PlayerFunctions.State.Foot;
+                }
             break;
         }
         pf.staminaBar.curPercent = pf.stamina;
