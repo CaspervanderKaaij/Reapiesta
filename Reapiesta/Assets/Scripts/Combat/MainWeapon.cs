@@ -21,11 +21,13 @@ public class MainWeapon : MonoBehaviour
     //By Casper :D
     [SerializeField] Transform player;
     Cam cam;
+    [SerializeField] PlayerFunctions pf;
     void Start()
     {
         camPos = Camera.main.transform;
         currentAmmoAmount = Clipsize;
         cam = GameObject.FindObjectOfType<Cam>();
+        pf = player.GetComponent<PlayerFunctions>();
     }
 
     void Update()
@@ -45,15 +47,30 @@ public class MainWeapon : MonoBehaviour
         }
     }
 
+    void LateUpdate()
+    {
+        if (IsInvoking("PlayerRot") == true)
+        {
+            player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
+        }
+    }
+
     void Shoot()
     {
+        if (pf.curState == PlayerFunctions.State.Foot)
+        {
+            pf.anim.SetFloat("Blend", 1);
+        }
         //	when click shoot
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack") && IsInvoking("PlayerRot") == false)
         {
             if (currentAmmoAmount > 0)
             {
+                pf.anim.Play("Shoot", 0, 0);
+                Invoke("PlayerRot", 0.25f);
+                player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
                 cam.SmallShake();
-                player.GetComponent<PlayerFunctions>().curState = PlayerFunctions.State.Attack;
+                //  player.GetComponent<PlayerFunctions>().curState = PlayerFunctions.State.Attack;
                 //  subtract bullet
                 currentAmmoAmount--;
                 //	instantiate bullet
@@ -65,8 +82,10 @@ public class MainWeapon : MonoBehaviour
                 if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght))
                 {
                     //	move to the point the raycast hit an object
-                    addRigid.velocity = (hit.point - transform.position).normalized * forceAmount;
-                    addRigid.rotation = Quaternion.LookRotation(addRigid.velocity);
+                  //  addRigid.velocity = (hit.point - transform.position).normalized * forceAmount;
+                  //  addRigid.rotation = Quaternion.LookRotation(addRigid.velocity);
+                  addRigid.transform.LookAt(hit.point);
+                  addRigid.AddForce(addRigid.transform.forward * forceAmount * 75);
                 }
                 else
                 {
@@ -80,6 +99,11 @@ public class MainWeapon : MonoBehaviour
                 currentAmmoAmount = 0;
             }
         }
+    }
+
+    void PlayerRot()
+    {
+        //   pf.curState = PlayerFunctions.State.Foot;
     }
 
     void UIFunction()

@@ -127,6 +127,7 @@ public class PlayerFunctions : MonoBehaviour
     public void GhostPot(int ghost)
     {
         ghostAmount++;
+        ghostText.localScale += new Vector3(-0.01f,0.1f,0);
         ghostText.GetComponent<Text>().text = ghostAmount.ToString();
         if (ghostAmount >= ghostToKill)
         {
@@ -273,7 +274,6 @@ public class PlayerFunctions : MonoBehaviour
 
     public void SkateGravity()
     {
-
         if (cc.isGrounded == true)
         {
             curAnim = Animation.Skate;
@@ -436,8 +436,8 @@ public class PlayerFunctions : MonoBehaviour
         }
         for (int i = 0; i < dashEffects.Length; i++)
         {
-           // dashEffects[i].SetActive(true);
-           dashEffects[i].GetComponent<ParticleSystem>().Play();
+            // dashEffects[i].SetActive(true);
+            dashEffects[i].GetComponent<ParticleSystem>().Play();
         }
     }
 
@@ -479,6 +479,7 @@ public class PlayerFunctions : MonoBehaviour
 
     public void Gravity()
     {
+
         if (cc.isGrounded == true)
         {
             canDash = true;
@@ -489,21 +490,23 @@ public class PlayerFunctions : MonoBehaviour
         {
             curAnim = Animation.Jump;
         }
-        if (moveV3.y < 0)
-        {
-            moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration * 2);
-        }
-        else
-        {
-            moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration);
-        }
+
+            if (moveV3.y < 0)
+            {
+                moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration * 2);
+            }
+            else
+            {
+                moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration);
+            }
+        
+
 
         if (Input.GetButtonDown("Jump") && cc.isGrounded == true)
         {
             moveV3.y = jumpHeight;
             CancelInvoke("AntiBounceCancel");
             AntiBounceCancel();
-            curAnim = Animation.Jump;
         }
     }
 

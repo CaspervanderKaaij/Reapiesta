@@ -45,6 +45,7 @@ public class Cam : MonoBehaviour
         lastPos = transform.position;
         if (isShaking == true)
         {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0);
             Shake(shakestr);
         }
     }
@@ -80,6 +81,7 @@ public class Cam : MonoBehaviour
     void Shake(float str)
     {
         transform.position += new Vector3(Random.Range(-str, str), Random.Range(-str, str), Random.Range(-str, str));
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Random.Range(-str, str));
     }
 
     void NormalCam()
@@ -120,11 +122,11 @@ public class Cam : MonoBehaviour
     void Zooming()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (player.position - transform.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
+        if (Physics.Raycast(transform.position, (player.position - transform.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast", "IgnoreTrigger", "ClothCollider")))
         {
             transform.position = hit.point;
         }
-        if (Physics.Raycast(player.position, (transform.position - player.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
+        if (Physics.Raycast(player.position, (transform.position - player.position), out hit, Vector3.Distance(transform.position, player.position), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast", "IgnoreTrigger", "ClothCollider")))
         {
             transform.position = hit.point;
         }

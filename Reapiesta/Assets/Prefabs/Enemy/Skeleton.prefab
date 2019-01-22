@@ -2775,7 +2775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHealth: 3
   team: 1
-  deathParticle: {fileID: 1756606708361684, guid: b0cb0fab1abb2c142a77ad3e187d13ce,
+  deathParticle: {fileID: 1497850160672192, guid: 02e23fbf3f043d746af43bfd2c55faaa,
     type: 2}
   hitParticle: {fileID: 1756606708361684, guid: 59209856748f33846827cb4e2b95f143,
     type: 2}

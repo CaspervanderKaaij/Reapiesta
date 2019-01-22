@@ -42,50 +42,6 @@ public class PlayerController : MonoBehaviour
         }
         switch (pf.curState)
         {
-
-            case PlayerFunctions.State.Foot:
-                pf.grounded = true;
-                if (pp.profile.motionBlur.enabled == true)
-                {
-                    pp.profile.motionBlur.enabled = false;
-                    pf.StopSkateBoost();
-                    canBoost = false;
-                }
-                //here
-                pf.skateBoard.SetActive(false);
-                pf.MoveForward();
-                pf.AngleY();
-                pf.Gravity();
-                pf.FinalMove();
-                if (Input.GetButtonDown("Fire2"))
-                {
-                    pf.StartSkateBoard();
-                }
-                if (Input.GetButtonDown("Dash"))
-                {
-                    if (canDash == true && pf.stamina >= dashCon)
-                    {
-                        pf.stamina -= dashCon;
-                        canDash = false;
-                        Invoke("SetCanDash", dashLagTime);
-                        pf.StartDash();
-                    }
-                    // pp.profile.motionBlur.enabled = true;
-                    // Camera.main.fieldOfView = 40;
-                    //here
-                }
-                if (pf.cc.isGrounded == true)
-                {
-                    if (pf.dustParticles.isStopped == true)
-                    {
-                        pf.dustParticles.Play();
-                    }
-                }
-                else
-                {
-                    pf.dustParticles.Stop();
-                }
-                break;
             case PlayerFunctions.State.SkateBoard:
                 pf.skateBoard.SetActive(true);
                 pf.dustParticles.Stop();
@@ -147,9 +103,56 @@ public class PlayerController : MonoBehaviour
                 }
 
                 break;
+
+
             case PlayerFunctions.State.Dash:
                 pf.dustParticles.Stop();
                 pf.DashStuff();
+                pf.FinalMove();
+                break;
+
+                
+            case PlayerFunctions.State.Foot:
+                pf.grounded = true;
+                if (pp.profile.motionBlur.enabled == true)
+                {
+                    pp.profile.motionBlur.enabled = false;
+                    pf.StopSkateBoost();
+                    canBoost = false;
+                }
+                //here
+                pf.skateBoard.SetActive(false);
+                pf.MoveForward();
+                pf.AngleY();
+                if (Input.GetButtonDown("Fire2"))
+                {
+                    pf.StartSkateBoard();
+                }
+                if (Input.GetButtonDown("Dash"))
+                {
+                    if (canDash == true && pf.stamina >= dashCon)
+                    {
+                        pf.stamina -= dashCon;
+                        canDash = false;
+                        Invoke("SetCanDash", dashLagTime);
+                        pf.StartDash();
+                    }
+                    // pp.profile.motionBlur.enabled = true;
+                    // Camera.main.fieldOfView = 40;
+                    //here
+                }
+                if (pf.cc.isGrounded == true)
+                {
+                    if (pf.dustParticles.isStopped == true)
+                    {
+                        pf.dustParticles.Play();
+                    }
+                }
+                else
+                {
+                    pf.dustParticles.Stop();
+                }
+                pf.Gravity();
                 pf.FinalMove();
                 break;
         }

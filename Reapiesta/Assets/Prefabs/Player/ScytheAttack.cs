@@ -19,6 +19,10 @@ public class ScytheAttack : MonoBehaviour
 
     void Update()
     {
+        if (plyr.pf.curState == PlayerFunctions.State.Foot)
+        {
+            plyr.pf.anim.SetFloat("Blend", 0);
+        }
         if (plyr.pf.curState != PlayerFunctions.State.Dash)
         {
             if (plyr.pf.curState != PlayerFunctions.State.Attack)
