@@ -1,0 +1,9 @@
+Stamina regeneration:
+als je stamina gebruikt is er een kleine tijdsdelay voordat het weer kan rechargen.
+als je al je stamina hebt gebruikt moet je wachten tot hij weer helemaal is gevuld
+____________________________________________________________________________________
+als je de gun ge-equipped heb dan kan je met linkermuis schieten met hip-fire
+en als je rechtermuis indrukt dan kan je verder inzoomen en vertraagt alles in het spel zodat je beter kan richten
+laat de kogels tijdens deze slow-mo nog wel snel genoeg bewegen dat ze enemies gegarandeerd kunnen raken
+deze slow-down blijft stamina consumen totdat je stamina leeg is of als je loslaat
+als de stamina balk helemaal leeg is stop je met richten en gelden alle vorig opgenoemde stamina regels
