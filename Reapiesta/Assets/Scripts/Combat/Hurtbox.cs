@@ -8,7 +8,9 @@ public class Hurtbox : MonoBehaviour
 
     [SerializeField] float damage = 1;
     [SerializeField] int team = 0;
-   [SerializeField] bool destroyOnHit = true;
+    [SerializeField] bool destroyOnHit = true;
+    [SerializeField] bool bullet = false;
+    [SerializeField] GameObject hitParticle;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,16 +20,23 @@ public class Hurtbox : MonoBehaviour
             if (team != hit.team)
             {
                 hit.Hit(damage);
-                if (destroyOnHit == true) {
+                if (destroyOnHit == true)
+                {
                     Destroy(gameObject);
                 }
-              // Debug.Log(other.name + " got hit!");
+                // Debug.Log(other.name + " got hit!");
             }
             else
             {
                 //Destroy(gameObject);
-              //  Debug.Log("Same team");
+                //  Debug.Log("Same team");
             }
+        }
+
+        if (bullet == true)
+        {
+            Destroy(gameObject);
+            Instantiate(hitParticle, transform.position, Quaternion.identity);
         }
     }
 }

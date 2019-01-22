@@ -72,7 +72,7 @@ public class MainWeapon : MonoBehaviour
                 cam.SmallShake();
                 //  player.GetComponent<PlayerFunctions>().curState = PlayerFunctions.State.Attack;
                 //  subtract bullet
-                currentAmmoAmount--;
+               // currentAmmoAmount--;
                 //	instantiate bullet
                 Transform newBullet = Instantiate(bullet, barrelEnd.position, barrelEnd.rotation);
                 Rigidbody addRigid = newBullet.GetComponent<Rigidbody>();

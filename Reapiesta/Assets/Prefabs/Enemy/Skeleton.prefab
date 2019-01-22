@@ -2777,8 +2777,9 @@ MonoBehaviour:
   team: 1
   deathParticle: {fileID: 1497850160672192, guid: 02e23fbf3f043d746af43bfd2c55faaa,
     type: 2}
-  hitParticle: {fileID: 1756606708361684, guid: 59209856748f33846827cb4e2b95f143,
+  hitParticle: {fileID: 1640146249717390, guid: 58083b86f4e93d74398ece6b1a222774,
     type: 2}
+  particleOffset: {x: 0, y: 0, z: 0}
   hitShake: 1
   dieShake: 1
   cam: {fileID: 0}

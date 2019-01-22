@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
                 pf.FinalMove();
                 break;
 
-                
+
             case PlayerFunctions.State.Foot:
                 pf.grounded = true;
                 if (pp.profile.motionBlur.enabled == true)
@@ -155,6 +155,12 @@ public class PlayerController : MonoBehaviour
                 pf.Gravity();
                 pf.FinalMove();
                 break;
+            case PlayerFunctions.State.Attack:
+                pf.Gravity();
+                pf.moveV3.x = 0;
+                pf.moveV3.z = 0;
+                pf.FinalMove();
+            break;
         }
         pf.staminaBar.curPercent = pf.stamina;
         pf.stamina = Mathf.MoveTowards(pf.stamina, 100, Time.deltaTime * staminaReloadTime);

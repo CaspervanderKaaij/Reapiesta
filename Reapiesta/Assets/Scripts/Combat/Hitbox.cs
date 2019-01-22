@@ -9,6 +9,7 @@ public class Hitbox : MonoBehaviour
     public int team = 0;
     public GameObject deathParticle;
     [SerializeField] GameObject hitParticle;
+    [SerializeField] Vector3 particleOffset;
     [Header("ScreenShake")]
     [SerializeField] bool hitShake = false;
     public bool dieShake = false;
@@ -48,7 +49,7 @@ public class Hitbox : MonoBehaviour
             StartCoroutine(SetTimeBack(stopTime * 10));
             if (hitParticle != null)
             {
-                Instantiate(hitParticle, transform.position, transform.rotation);
+                Instantiate(hitParticle, transform.position + particleOffset, transform.rotation);
             }
         }
         //sets the ui bar if there is one
@@ -79,7 +80,7 @@ public class Hitbox : MonoBehaviour
         }
         if (deathParticle != null)
         {
-            Instantiate(deathParticle, transform.position, transform.rotation);
+            Instantiate(deathParticle, transform.position + particleOffset, transform.rotation);
         }
     }
 }
