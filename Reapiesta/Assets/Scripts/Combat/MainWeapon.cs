@@ -133,7 +133,7 @@ public class MainWeapon : MonoBehaviour
         // trigger the UIFunction
         UIFunction();
         // if the raycast hit a thing
-        if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght))
+        if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght,~LayerMask.GetMask("IgnoreRaycast","IgnoreCam","IgnoreTrigger","ClothCollider")))
         {
             //	move to the point the raycast hit an object
             //  addRigid.velocity = (hit.point - transform.position).normalized * forceAmount;
