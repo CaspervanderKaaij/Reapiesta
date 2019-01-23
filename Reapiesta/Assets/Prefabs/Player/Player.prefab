@@ -6268,7 +6268,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 10039
+    m_Bits: 26423
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -11211,6 +11211,7 @@ MonoBehaviour:
   boostStaminaCon: 120
   staminaReloadTime: 60
   dashCon: 30
+  staminaStopTime: 0.6
 --- !u!114 &114820197649083080
 MonoBehaviour:
   m_ObjectHideFlags: 1

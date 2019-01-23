@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float boostStaminaCon = 40;
     [SerializeField] float staminaReloadTime = 30;
     [SerializeField] float dashCon = 30;
+    bool canReplenishStamina = true;
+    float lastStamina;
+    [SerializeField] float staminaStopTime = 0.6f;
 
 
     void Start()
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
         pp = Camera.main.GetComponent<PostProcessingBehaviour>();
         pf.StopSkateBoost();
         canBoost = false;
+        lastStamina = pf.stamina;
     }
     void Update()
     {
@@ -160,13 +164,28 @@ public class PlayerController : MonoBehaviour
                 pf.moveV3.x = 0;
                 pf.moveV3.z = 0;
                 pf.FinalMove();
-                if(pf.anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")){
+                if (pf.anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
+                {
                     pf.curState = PlayerFunctions.State.Foot;
                 }
-            break;
+                break;
+        }
+        if (pf.stamina != lastStamina)
+        {
+            CancelInvoke("ResetStamina");
+            Invoke("ResetStamina", staminaStopTime);
         }
         pf.staminaBar.curPercent = pf.stamina;
-        pf.stamina = Mathf.MoveTowards(pf.stamina, 100, Time.deltaTime * staminaReloadTime);
+        if (IsInvoking("ResetStamina") == false)
+        {
+            pf.stamina = Mathf.MoveTowards(pf.stamina, 100, Time.deltaTime * staminaReloadTime);
+        }
+        lastStamina = pf.stamina;
+    }
+
+    void ResetStamina()
+    {
+        //just don't delete it.
     }
 
     void SetCanDash()

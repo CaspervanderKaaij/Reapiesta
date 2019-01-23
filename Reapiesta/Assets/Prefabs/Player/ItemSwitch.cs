@@ -31,7 +31,9 @@ public class ItemSwitch : MonoBehaviour
 
     void Update()
     {
+        if(IsInvoking("ScrollStopper") == false){
         Scroll();
+        }
         SetActives();
         ActivateSpecial();
         SetOffsetType();
@@ -59,6 +61,10 @@ public class ItemSwitch : MonoBehaviour
         }
     }
 
+    void ScrollStopper(){
+        //another use of invoking, which uses a function that does nothing.
+    }
+
     void Scroll()
     {
         // if (Input.mouseScrollDelta.y != 0)
@@ -82,6 +88,7 @@ public class ItemSwitch : MonoBehaviour
         {
             StaticFunctions.PlayAudio(0, false);
             ui.rectTransform.localScale = new Vector3(0.1f,2,1);
+            Invoke("ScrollStopper",0.3f);
         }
         if (curItem > transform.childCount - 1)
         {

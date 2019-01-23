@@ -218,7 +218,7 @@ MonoBehaviour:
   team: 0
   destroyOnHit: 1
   bullet: 1
-  hitParticle: {fileID: 1113488786548398, guid: 96f2647d84661484386c31a4b7541ad4,
+  hitParticle: {fileID: 1690105505703182, guid: bb4097a45aaddfd4b98469b9dc93bb7b,
     type: 2}
   playerTalk: 0
 --- !u!136 &136997344469632402
