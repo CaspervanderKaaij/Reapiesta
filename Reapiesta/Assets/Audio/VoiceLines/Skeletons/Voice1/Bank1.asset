@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b178a0c29a3372438d1473ec3c4a291, type: 3}
+  m_Name: Bank1
+  m_EditorClassIdentifier: 
+  lines:
+  - clips:
+    - {fileID: 8300000, guid: ee51a21d7428e7a41ae38d62c1116bd8, type: 3}
+    - {fileID: 8300000, guid: 51940d9bee921e041b83518eeea25bcd, type: 3}
+    - {fileID: 8300000, guid: 70556cea50a44574fa46ac481a8a7be8, type: 3}
+    - {fileID: 8300000, guid: 21d31c4c1378e0a4dad7a1d3035e74a4, type: 3}
+    - {fileID: 8300000, guid: df761abf4f4bbe74ca17baa659235208, type: 3}
+    - {fileID: 8300000, guid: cec737033aaabc4478ce4d28f2d0fe06, type: 3}
+  - clips:
+    - {fileID: 8300000, guid: aa3da1a508196d44ea4555e7f578b6d2, type: 3}
+    - {fileID: 8300000, guid: 1a1c3bc0dae3e1c429b188bbb8458110, type: 3}
+    - {fileID: 8300000, guid: d63d5eb15fff8bf448acb18dfe644a41, type: 3}
+    - {fileID: 8300000, guid: 20eb4df72fae28a4dbf61ab557f51e2d, type: 3}
+    - {fileID: 8300000, guid: 934d58abf05f31b4a8bd76dc3ba26588, type: 3}
+  - clips:
+    - {fileID: 8300000, guid: c4cf7206d4bce8540b36f42c4ed23d21, type: 3}
+    - {fileID: 8300000, guid: 56289fd96a4ccc84c9e02db52286f069, type: 3}
+    - {fileID: 8300000, guid: c0debe712298d6446884e2090e1c39d1, type: 3}
+    - {fileID: 8300000, guid: 1ce996edd7ebe8949b742715bbf2993f, type: 3}
+    - {fileID: 8300000, guid: 3ea39736dd2abf14fa49664891e46545, type: 3}
+    - {fileID: 8300000, guid: 373c2bb36db7dd74fa83faffabfecd56, type: 3}

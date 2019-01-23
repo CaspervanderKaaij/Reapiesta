@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Talk : MonoBehaviour
 {
 
@@ -32,7 +31,7 @@ public class Talk : MonoBehaviour
         {
             if (justPlaying == false)
             {
-                source.clip = lines[type].clips[Random.Range(0, lines[type].clips.Length)];
+                source.clip = lines[type].clips[Random.Range(0, lines[type].clips.Count)];
                 source.Play();
 				justPlaying = true;
             }
@@ -47,5 +46,5 @@ public class Talk : MonoBehaviour
 [System.Serializable]
 public class Dia
 {
-    public AudioClip[] clips;
+    public List<AudioClip> clips;
 }
