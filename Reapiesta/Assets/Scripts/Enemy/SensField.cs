@@ -32,6 +32,7 @@ public class SensField : MonoBehaviour
             {
                 transform.parent.gameObject.GetComponent<Melee>().target = other.transform.position;
                 transform.parent.gameObject.GetComponent<Melee>().trigger = true;
+                transform.parent.gameObject.GetComponent<Melee>().Attack();
             }
             else
             {

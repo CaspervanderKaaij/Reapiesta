@@ -25,19 +25,15 @@ public class Melee : GeneralEnemyCode
         {
             Timer(meleeStats.attackSpeed);
         }
-        if(currentTime <=0)
-        {
-            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0.5f, Time.deltaTime * 2));
-            hurtBox.SetActive(false);
-        }
         CheckDist(target, targetDist, GetComponent<Ground>().moveState);
     }
-
+    public void Attack()
+    {
+        hurtBox.SetActive(false);
+        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0.5f, Time.deltaTime * 2));
+    }
     public override void Action()
     {
-        if (action)
-        {
-            hurtBox.SetActive(true);
-        }
+        hurtBox.SetActive(true);
     }
 }

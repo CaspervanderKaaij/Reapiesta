@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832e81414f938f144b87d51fab938ca6, type: 3}
   m_Name: RangeStats
   m_EditorClassIdentifier: 
-  mintargetDist: 7
+  mintargetDist: 10
   forceAmount: 25
   attackSpeed: 3
   bottle:

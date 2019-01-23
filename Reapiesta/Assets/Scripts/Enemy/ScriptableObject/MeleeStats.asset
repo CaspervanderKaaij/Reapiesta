@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: MeleeStats
   m_EditorClassIdentifier: 
   attackSpeed: 0.7
-  mintargetDist: 0.3
+  mintargetDist: 1.6
