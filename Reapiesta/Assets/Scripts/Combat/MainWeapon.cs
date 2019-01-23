@@ -70,9 +70,7 @@ public class MainWeapon : MonoBehaviour
             player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
         }
 
-        if (Input.GetAxis("Throw") != 0 && IsInvoking("PlayerRot") == false &&
-        pf.grounded == false && StaticFunctions.paused == false && pf.curState == PlayerFunctions.State.SkateBoard && pf.stamina > 90
-        && pf.anim.GetCurrentAnimatorStateInfo(0).IsTag("Skate") == true)
+        if (cam.offsetType == 1 && StaticFunctions.paused == false)
         {
             Time.timeScale = 0.1f;
             inSlowMo = true;
@@ -84,12 +82,7 @@ public class MainWeapon : MonoBehaviour
                 inSlowMo = false;
                 Time.timeScale = 1;
             }
-            if (pf.grounded == true)
-            {
-                inSlowMo = false;
-                Time.timeScale = 1;
-            }
-            if (pf.curState != PlayerFunctions.State.SkateBoard)
+            if (pf.cc.isGrounded == true)
             {
                 inSlowMo = false;
                 Time.timeScale = 1;

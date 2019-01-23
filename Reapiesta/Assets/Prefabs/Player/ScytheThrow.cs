@@ -45,7 +45,7 @@ public class ScytheThrow : MonoBehaviour
         {
             case State.Disabled:
                 DisabledStuff();
-                if (Input.GetButtonDown("Throw") == true && pf.curState == PlayerFunctions.State.Foot)
+                if (Input.GetButtonDown("Throw") == true && pf.curState == PlayerFunctions.State.Foot && FindObjectOfType<ItemSwitch>().curItem == 0)
                 {
                     Invoke("StartThrow",anticipationTime);
                     pf.curState = PlayerFunctions.State.Attack;

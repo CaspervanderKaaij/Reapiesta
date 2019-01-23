@@ -21,6 +21,7 @@ public class ItemSwitch : MonoBehaviour
     Renderer[] weaponRends;
     [SerializeField]
     GameObject scytheBack;
+    int zoomed = 0;
 
 
     void Start()
@@ -29,19 +30,40 @@ public class ItemSwitch : MonoBehaviour
         cam = Camera.main.GetComponent<Cam>();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        if(IsInvoking("ScrollStopper") == false){
-        Scroll();
+        ActivateSpecial();
+        if (IsInvoking("ScrollStopper") == false)
+        {
+            Scroll();
         }
         SetActives();
-        ActivateSpecial();
         SetOffsetType();
     }
 
     void SetOffsetType()
     {
-        cam.offsetType = offsetType[curItem];
+        if (IsInvoking("StopZooming") == false)
+        {
+            if (Input.GetButtonDown("Throw") == true && curItem != specialDisable)
+            {
+                zoomed = 1;
+            }
+            if (Input.GetButtonUp("Throw") == true || curItem == specialDisable)
+            {
+                zoomed = 0;
+            }
+        }
+        else
+        {
+            zoomed = 0;
+        }
+        cam.offsetType = offsetType[zoomed];
+    }
+
+    void StopZooming()
+    {
+        //invoke sh*t
     }
 
     void SetActives()
@@ -61,7 +83,8 @@ public class ItemSwitch : MonoBehaviour
         }
     }
 
-    void ScrollStopper(){
+    void ScrollStopper()
+    {
         //another use of invoking, which uses a function that does nothing.
     }
 
@@ -87,8 +110,8 @@ public class ItemSwitch : MonoBehaviour
         if (curItem != lastItem)
         {
             StaticFunctions.PlayAudio(0, false);
-            ui.rectTransform.localScale = new Vector3(0.1f,2,1);
-            Invoke("ScrollStopper",0.3f);
+            ui.rectTransform.localScale = new Vector3(0.1f, 2, 1);
+            Invoke("ScrollStopper", 0.3f);
         }
         if (curItem > transform.childCount - 1)
         {
@@ -113,6 +136,7 @@ public class ItemSwitch : MonoBehaviour
             // special.SetActive(false);
             curItem++;
             ui.text = transform.GetChild(curItem).name;
+            Invoke("StopZooming",0.2f);
         }
         if (curItem == specialDisable && special.curState != ScytheThrow.State.Disabled)
         {

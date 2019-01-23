@@ -1,6 +1,7 @@
 Stamina regeneration:
 als je stamina gebruikt is er een kleine tijdsdelay voordat het weer kan rechargen.
 als je al je stamina hebt gebruikt moet je wachten tot hij weer helemaal is gevuld
+k done lol
 ____________________________________________________________________________________
 als je de gun ge-equipped heb dan kan je met linkermuis schieten met hip-fire
 en als je rechtermuis indrukt dan kan je verder inzoomen en vertraagt alles in het spel zodat je beter kan richten
