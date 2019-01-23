@@ -11,6 +11,10 @@ public class Range : GeneralEnemyCode
     public RangeStats rangeStats;
     public override void Start()
     {
+        base.Start();
+        //destroy hurtbox of melee enemy
+        GameObject destroy = transform.GetChild(1).gameObject;
+        Destroy(destroy);
         anim = GetComponent<Animator>();
         throwPos = transform.GetChild(0);
         //player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -26,7 +30,7 @@ public class Range : GeneralEnemyCode
     public void Attack()
     {
         Timer(rangeStats.attackSpeed);
-        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"),1f,Time.deltaTime * 2));
+        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 1f, Time.deltaTime * 2));
     }
 
     public override void Action()

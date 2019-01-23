@@ -8,17 +8,19 @@ public class SensField : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
+            transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.chasing;
+            transform.parent.gameObject.GetComponent<Ground>().target = other.transform.position;
             if (transform.parent.gameObject.GetComponent<Melee>())
             {
                 transform.parent.gameObject.GetComponent<Melee>().target = other.transform.position;
+                transform.parent.gameObject.GetComponent<Melee>().trigger = true;
             }
             else
             {
-              //  print("the player enters the area");
+                //  print("the player enters the area");
                 transform.parent.gameObject.GetComponent<Range>().target = other.transform.position;
+                transform.parent.gameObject.GetComponent<Range>().trigger = true;
             }
-            transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.chasing;
-            transform.parent.gameObject.GetComponent<Ground>().target = other.transform.position;
         }
     }
 
@@ -29,11 +31,13 @@ public class SensField : MonoBehaviour
             if (transform.parent.gameObject.GetComponent<Melee>())
             {
                 transform.parent.gameObject.GetComponent<Melee>().target = other.transform.position;
+                transform.parent.gameObject.GetComponent<Melee>().trigger = true;
             }
             else
             {
-               // print("I see the player");
+                // print("I see the player");
                 transform.parent.gameObject.GetComponent<Range>().target = other.transform.position;
+                transform.parent.gameObject.GetComponent<Range>().trigger = true;
                 transform.parent.gameObject.GetComponent<Range>().Attack();
             }
             transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.chasing;
@@ -50,6 +54,10 @@ public class SensField : MonoBehaviour
             transform.parent.gameObject.GetComponent<Ground>().moveState = MoveState.idle;
             // set the target to it self
             transform.parent.gameObject.GetComponent<Ground>().target = transform.position;
+            if (transform.parent.gameObject.GetComponent<Melee>())
+            {
+                transform.parent.gameObject.GetComponent<Melee>().trigger = false;
+            }
         }
     }
 }

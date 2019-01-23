@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 136209943073741320}
   - component: {fileID: 54788196036346938}
   - component: {fileID: 114138180940048162}
+  - component: {fileID: 114385790645390504}
   m_Layer: 0
   m_Name: WineBottle_2
   m_TagString: Untagged
@@ -406,6 +407,20 @@ MonoBehaviour:
   damage: 1
   team: 1
   destroyOnHit: 1
+  bullet: 0
+  hitParticle: {fileID: 0}
+--- !u!114 &114385790645390504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170462013664550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795909e9121e1d24ba69b4466a673b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 2
 --- !u!136 &136209943073741320
 CapsuleCollider:
   m_ObjectHideFlags: 1
