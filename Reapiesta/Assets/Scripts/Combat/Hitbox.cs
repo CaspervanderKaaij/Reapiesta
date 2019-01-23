@@ -19,6 +19,7 @@ public class Hitbox : MonoBehaviour
     [SerializeField] float stopTime = 0.01f;
     [SerializeField] bool playerTalk = false;
     [SerializeField] bool enemyHitSfx = false;
+    [SerializeField] float healOverTime = 0;
 
     void Start()
     {
@@ -30,10 +31,20 @@ public class Hitbox : MonoBehaviour
         cam = Camera.main.GetComponent<Cam>();
         maxHealth = curHealth;
     }
+
+    void Update()
+    {
+        curHealth = Mathf.MoveTowards(curHealth, maxHealth, Time.deltaTime * healOverTime);
+        if (uiBar != null)
+        {
+            uiBar.curPercent = curHealth / maxHealth * 100;
+        }
+    }
     public virtual void Hit(float damage)
     {
-        if(enemyHitSfx == true){
-            GetComponent<Talk>().Speak(1,GetComponent<Talk>().curPriority + 1);
+        if (enemyHitSfx == true)
+        {
+            GetComponent<Talk>().Speak(1, GetComponent<Talk>().curPriority + 1);
         }
         curHealth -= damage;
         //Debug.Log(curHealth + " health left.");
@@ -71,15 +82,16 @@ public class Hitbox : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
-       // Debug.Log(StaticFunctions.paused);
+        // Debug.Log(StaticFunctions.paused);
     }
 
     public virtual void Die()
     {
         Destroy(gameObject);
         StaticFunctions.PlayAudio(2, false);
-        if(playerTalk == true){
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(0,1);
+        if (playerTalk == true)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(0, 1);
         }
         //Debug.Log(name + " died");
         if (dieShake == true)

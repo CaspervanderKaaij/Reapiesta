@@ -227,7 +227,7 @@ public class PlayerFunctions : MonoBehaviour
 
     public void StartDash()
     {
-        if (canDash == true)
+        if (canDash == true && Time.timeScale == 1)
         {
             StaticFunctions.PlayAudio(13, false);
             stateBeforeDash = curState;
@@ -304,7 +304,7 @@ public class PlayerFunctions : MonoBehaviour
         grounded = false;
         RaycastHit hit;
         float input = Vector2.SqrMagnitude(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 2))
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 2,LayerMask.GetMask("Default"),QueryTriggerInteraction.Ignore))
         {
             //            Debug.Log(hit.transform.name);
             grounded = true;

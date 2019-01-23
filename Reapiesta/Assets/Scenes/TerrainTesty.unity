@@ -278,6 +278,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.004
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &317286872
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -379,6 +381,7 @@ MonoBehaviour:
   - clips: []
   - clips: []
   - clips: []
+  curPriority: 0
   silentTime: 2
 --- !u!1 &504480013
 GameObject:
@@ -423,6 +426,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.002
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &504480015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -732,6 +737,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.002
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &1048041713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -842,6 +849,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.004
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &1093441251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -952,6 +961,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.002
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &1138286902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1148,80 +1159,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224978718092139642, guid: 6837d688b2aed804eb576d069e314737,
+    - target: {fileID: 114463564487940554, guid: 6837d688b2aed804eb576d069e314737,
         type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 685.0428
-      objectReference: {fileID: 0}
-    - target: {fileID: 224978718092139642, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -674.1391
-      objectReference: {fileID: 0}
-    - target: {fileID: 224218264493074542, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 690.00226
-      objectReference: {fileID: 0}
-    - target: {fileID: 224218264493074542, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -674.1391
-      objectReference: {fileID: 0}
-    - target: {fileID: 224225635037051694, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 298.20294
-      objectReference: {fileID: 0}
-    - target: {fileID: 224225635037051694, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -386.28278
-      objectReference: {fileID: 0}
-    - target: {fileID: 224586534778241954, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 680.1289
-      objectReference: {fileID: 0}
-    - target: {fileID: 224586534778241954, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -674.1391
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Center.x
-      value: 0.0004043579
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.05278015
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Center.z
-      value: -1.2233124
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.x
-      value: 1.6579515
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.9991914
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.z
-      value: 1.8441181
-      objectReference: {fileID: 0}
-    - target: {fileID: 114826543264523430, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: playerTalk
-      value: 0
+      propertyPath: healOverTime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6837d688b2aed804eb576d069e314737, type: 2}
@@ -1411,6 +1352,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.004
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &1555948675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1521,6 +1464,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.004
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &1574458440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1631,6 +1576,8 @@ MonoBehaviour:
   uiBar: {fileID: 0}
   stopTime: 0.004
   playerTalk: 0
+  enemyHitSfx: 0
+  healOverTime: 0
 --- !u!65 &1744264304
 BoxCollider:
   m_ObjectHideFlags: 0
