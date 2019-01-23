@@ -92,7 +92,11 @@ public class MainWeapon : MonoBehaviour
                 Invoke("ShootStuff", 0.01f);
                 player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
             }
-            if (pf.stamina > 0)
+            if (Time.timeScale == 1)
+            {
+                inSlowMo = false;
+            }
+            if (pf.stamina > 0 && inSlowMo == true)
             {
                 pf.stamina -= Time.deltaTime * 300;
             }
@@ -126,7 +130,7 @@ public class MainWeapon : MonoBehaviour
         // trigger the UIFunction
         UIFunction();
         // if the raycast hit a thing
-        if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght,~LayerMask.GetMask("IgnoreRaycast","IgnoreCam","IgnoreTrigger","ClothCollider")))
+        if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght, ~LayerMask.GetMask("IgnoreRaycast", "IgnoreCam", "IgnoreTrigger", "ClothCollider")))
         {
             //	move to the point the raycast hit an object
             //  addRigid.velocity = (hit.point - transform.position).normalized * forceAmount;
