@@ -22,7 +22,7 @@ public class Hurtbox : MonoBehaviour
             {
                 hit.Hit(damage);
                 if(playerTalk == true){
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(1);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(1,2);
                 }
                 if (destroyOnHit == true)
                 {

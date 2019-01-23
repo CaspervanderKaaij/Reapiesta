@@ -220,6 +220,7 @@ MonoBehaviour:
   bullet: 1
   hitParticle: {fileID: 1113488786548398, guid: 96f2647d84661484386c31a4b7541ad4,
     type: 2}
+  playerTalk: 0
 --- !u!136 &136997344469632402
 CapsuleCollider:
   m_ObjectHideFlags: 1

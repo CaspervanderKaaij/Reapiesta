@@ -18,6 +18,7 @@ public class Hitbox : MonoBehaviour
     float maxHealth = 1;
     [SerializeField] float stopTime = 0.01f;
     [SerializeField] bool playerTalk = false;
+    [SerializeField] bool enemyHitSfx = false;
 
     void Start()
     {
@@ -31,6 +32,9 @@ public class Hitbox : MonoBehaviour
     }
     public virtual void Hit(float damage)
     {
+        if(enemyHitSfx == true){
+            GetComponent<Talk>().Speak(1,GetComponent<Talk>().curPriority + 1);
+        }
         curHealth -= damage;
         //Debug.Log(curHealth + " health left.");
         if (curHealth <= 0)
@@ -75,7 +79,7 @@ public class Hitbox : MonoBehaviour
         Destroy(gameObject);
         StaticFunctions.PlayAudio(2, false);
         if(playerTalk == true){
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(0);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(0,1);
         }
         //Debug.Log(name + " died");
         if (dieShake == true)
