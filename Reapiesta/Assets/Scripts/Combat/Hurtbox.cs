@@ -11,6 +11,7 @@ public class Hurtbox : MonoBehaviour
     [SerializeField] bool destroyOnHit = true;
     [SerializeField] bool bullet = false;
     [SerializeField] GameObject hitParticle;
+    [SerializeField] bool playerTalk = true;
 
     void OnTriggerEnter(Collider other)
     {
@@ -20,6 +21,9 @@ public class Hurtbox : MonoBehaviour
             if (team != hit.team)
             {
                 hit.Hit(damage);
+                if(playerTalk == true){
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(1);
+                }
                 if (destroyOnHit == true)
                 {
                     Destroy(gameObject);
