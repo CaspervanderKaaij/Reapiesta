@@ -11,10 +11,10 @@ public class Melee : GeneralEnemyCode
 
     public override void Start()
     {
+        base.Start();
         anim = GetComponent<Animator>();
         hurtBox = transform.GetChild(1).gameObject;
         hurtBox.SetActive(false);
-        base.Start();
         targetDist = meleeStats.mintargetDist;
         currentTime = meleeStats.attackSpeed;
     }

@@ -11,10 +11,11 @@ public class GeneralEnemyCode : MonoBehaviour
     public float targetDist;
     public Animator anim;
     public bool trigger;
+    public Talk talk;
 
     public virtual void Start()
     {
-        //empty
+        talk = GetComponent<Talk>();
     }
 
     public virtual void Update()
@@ -39,13 +40,13 @@ public class GeneralEnemyCode : MonoBehaviour
             }
             if (minDist > targetDist)
             {
-                PlaySound();
+                PlaySound(1);
                 GetComponent<Ground>().groundAgent.isStopped = false;
                 GetComponent<Ground>().moveState = MoveState.walking;
             }
             else
             {
-                PlaySound();
+                PlaySound(2);
                 GetComponent<Ground>().groundAgent.isStopped = true;
                 GetComponent<Ground>().moveState = MoveState.idle;
             }
@@ -60,16 +61,16 @@ public class GeneralEnemyCode : MonoBehaviour
             if (currentTime <= 0)
             {
                 currentTime = 0;
-                PlaySound();
+                PlaySound(3);
                 anim.SetTrigger("Attack");
                 Invoke("Action",0.55f);
                 currentTime = time;
             }
         }
     }
-    public virtual void PlaySound()
+    public virtual void PlaySound(int index)
     {   
-
+        GetComponent<Talk>().Speak(index);
     }
     public virtual void Action()
     {

@@ -11,6 +11,7 @@ public class Range : GeneralEnemyCode
     public RangeStats rangeStats;
     public override void Start()
     {
+        base.Start();
         //destroy hurtbox of melee enemy
         GameObject destroy = transform.GetChild(1).gameObject;
         Destroy(destroy);
