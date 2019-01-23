@@ -13,6 +13,9 @@ public class FontenSpawn : MonoBehaviour
 
     [Header("Scritable Object")]
     [SerializeField] BaseStats[] baseStats;
+    RaycastHit hit;
+    [SerializeField] LayerMask mask;
+    Vector3 newWorldpos;
     void Start()
     {
         SpawnEnemies();
@@ -25,7 +28,7 @@ public class FontenSpawn : MonoBehaviour
             //pick a random position amount
             randomUnitCircleRadius = Random.Range(minRadius, maxRadius);
             // pick a random spawn point in the radius
-            Vector3 newPos = transform.position + new Vector3(Random.insideUnitCircle.x * randomUnitCircleRadius, transform.position.y, Random.insideUnitCircle.y * randomUnitCircleRadius);
+            Vector3 newPos = transform.position + new Vector3(Random.insideUnitCircle.x * randomUnitCircleRadius, 0, Random.insideUnitCircle.y * randomUnitCircleRadius);
             // spawn a enemy
             Transform newEnemy = Instantiate(enemy, transform.position, transform.rotation).transform;
             //set the random position to the target
