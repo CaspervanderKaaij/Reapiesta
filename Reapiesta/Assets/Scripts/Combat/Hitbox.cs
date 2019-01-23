@@ -17,6 +17,7 @@ public class Hitbox : MonoBehaviour
     [SerializeField] UIPercentBar uiBar;
     float maxHealth = 1;
     [SerializeField] float stopTime = 0.01f;
+    [SerializeField] bool playerTalk = false;
 
     void Start()
     {
@@ -73,6 +74,9 @@ public class Hitbox : MonoBehaviour
     {
         Destroy(gameObject);
         StaticFunctions.PlayAudio(2, false);
+        if(playerTalk == true){
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(0);
+        }
         //Debug.Log(name + " died");
         if (dieShake == true)
         {

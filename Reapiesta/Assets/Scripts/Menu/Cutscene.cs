@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Cutscene : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class Cutscene : MonoBehaviour
     AudioSource source;
     [SerializeField]
     AudioClip[] spokenDialogue;
+    public int nextScene = 4;
 
     void Start()
     {
@@ -63,7 +65,8 @@ public class Cutscene : MonoBehaviour
                 SpokenDialogue();
             } else
             {
-                Debug.Log("End");
+                Destroy(gameObject);
+                SceneManager.LoadScene(nextScene);
             }
         }
     }

@@ -12,6 +12,9 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] Text txt;
     [SerializeField] Image img;
     [SerializeField] bool deselectClick = true;
+    [SerializeField] Image backImg;
+    [SerializeField] Sprite[] backImages;
+    Vector3 startScale;
     void Start()
     {
         StartStuff();
@@ -19,6 +22,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void StartStuff()
     {
+        startScale = backImg.rectTransform.localScale;
         if (GetComponent<Text>() != null)
         {
             txt = GetComponent<Text>();
@@ -64,7 +68,9 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (txt != null)
         {
-            txt.fontStyle = FontStyle.Bold;
+           // txt.fontStyle = FontStyle.Bold;
+            backImg.sprite = backImages[1];
+            backImg.rectTransform.localScale = Vector3.Lerp(backImg.rectTransform.localScale, startScale * 1.1f, Time.deltaTime * 13);
         }
     }
 
@@ -72,7 +78,9 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (txt != null)
         {
-            txt.fontStyle = FontStyle.Normal;
+          //  txt.fontStyle = FontStyle.Normal;
+            backImg.sprite = backImages[0];
+            backImg.rectTransform.localScale = Vector3.Lerp(backImg.rectTransform.localScale, startScale, Time.deltaTime * 13);
         }
     }
 

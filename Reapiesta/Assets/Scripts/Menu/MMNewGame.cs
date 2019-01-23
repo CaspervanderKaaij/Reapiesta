@@ -16,6 +16,7 @@ public class MMNewGame : MenuButton
     void Start()
     {
         StartStuff();
+        StaticFunctions.PlayAudio(13,false);
     }
 
     void Update()
@@ -44,7 +45,7 @@ public class MMNewGame : MenuButton
             if (Input.GetButtonDown("Attack") == true)
             {
                 async.allowSceneActivation = true;
-            }
+           }
             else
             {
                 async.allowSceneActivation = false;

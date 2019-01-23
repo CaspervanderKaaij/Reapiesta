@@ -81,6 +81,7 @@ public class ItemSwitch : MonoBehaviour
         if (curItem != lastItem)
         {
             StaticFunctions.PlayAudio(0, false);
+            ui.rectTransform.localScale = new Vector3(0.1f,2,1);
         }
         if (curItem > transform.childCount - 1)
         {

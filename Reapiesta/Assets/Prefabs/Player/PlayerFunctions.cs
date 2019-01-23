@@ -127,7 +127,7 @@ public class PlayerFunctions : MonoBehaviour
     public void GhostPot(int ghost)
     {
         ghostAmount++;
-        ghostText.localScale += new Vector3(-0.01f,0.1f,0);
+        ghostText.localScale += new Vector3(-0.01f,0.5f,0);
         ghostText.GetComponent<Text>().text = ghostAmount.ToString();
         if (ghostAmount >= ghostToKill)
         {
