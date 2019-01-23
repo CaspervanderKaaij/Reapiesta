@@ -9,6 +9,7 @@ public class GeneralEnemyCode : MonoBehaviour
     public float currentTime;
     public bool action;
     public float targetDist;
+    public float targetDistCheck;
     public Animator anim;
     public bool trigger;
     public Talk talk;
@@ -28,17 +29,18 @@ public class GeneralEnemyCode : MonoBehaviour
         // check the distance of your target
         if (trigger)
         {
-            targetDist = Vector3.Distance(transform.position, target);
-            if (targetDist <= minDist && state == MoveState.chasing)
+            print(targetDistCheck);
+            targetDistCheck = Vector3.Distance(transform.position, target); 
+            if (targetDistCheck <= minDist && state == MoveState.chasing)
             {
-                print("Trigger");
+                print(targetDistCheck);
                 action = true;
                 // when your distance is close enough stop 
                 GetComponent<Ground>().groundAgent.isStopped = true;
                 // change state to attcking
                 GetComponent<Ground>().attacking = true;
             }
-            if (minDist > targetDist)
+            if (targetDistCheck > minDist)
             {
                 PlaySound(2,1);
                 GetComponent<Ground>().groundAgent.isStopped = false;

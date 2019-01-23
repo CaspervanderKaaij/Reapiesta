@@ -41,7 +41,6 @@ public class EnemyBehaviour : MonoBehaviour
         field.gameObject.AddComponent(typeof(SphereCollider));
         field.gameObject.AddComponent(typeof(SensField));
         int maskNumb = Mathf.RoundToInt(Mathf.Log(maskSensfield, 2));
-        print(Mathf.RoundToInt(Mathf.Log(maskSensfield, 2)));
         field.gameObject.layer = maskNumb;
         field.tag = baseStats.tag;
         field.GetComponent<SphereCollider>().isTrigger = baseStats.isTrigger;

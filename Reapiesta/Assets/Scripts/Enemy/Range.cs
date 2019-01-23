@@ -6,7 +6,6 @@ public class Range : GeneralEnemyCode
     Transform player;
     Transform throwPos;
     public Vector3 target;
-    float mintargetDist;
     [SerializeField] float forceAmount;
     public RangeStats rangeStats;
     public override void Start()
@@ -19,7 +18,7 @@ public class Range : GeneralEnemyCode
         throwPos = transform.GetChild(0);
         //player = GameObject.FindGameObjectWithTag("Player").transform;
         currentTime = rangeStats.attackSpeed;
-        mintargetDist = rangeStats.mintargetDist;
+        targetDist = rangeStats.mintargetDist;
         forceAmount = rangeStats.forceAmount;
     }
     public override void Update()

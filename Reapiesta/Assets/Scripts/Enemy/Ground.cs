@@ -73,21 +73,24 @@ public class Ground : MonoBehaviour
             moveState = MoveState.idle;
             anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0, Time.deltaTime * 2));
         }
+        else
+        {
+            moveState = MoveState.walking;
+            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 1, Time.deltaTime * 2));
+        }
     }
 
     void Idle(Vector3 newTarget)
     {
-        groundAgent.SetDestination(newTarget);
         //set a enemy to a position
+        groundAgent.SetDestination(newTarget);
         //play an animation
-        groundAgent.isStopped = true;
         anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0, Time.deltaTime * 2));
     }
     void Walking()
     {
         groundAgent.SetDestination(target);
         // walk random around the area
-        groundAgent.isStopped = false;
         anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 1, Time.deltaTime * 2));
     }
 }
