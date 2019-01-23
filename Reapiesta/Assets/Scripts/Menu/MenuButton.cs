@@ -22,7 +22,10 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void StartStuff()
     {
-        startScale = backImg.rectTransform.localScale;
+        if (backImg != null)
+        {
+            startScale = backImg.rectTransform.localScale;
+        }
         if (GetComponent<Text>() != null)
         {
             txt = GetComponent<Text>();
@@ -68,9 +71,12 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (txt != null)
         {
-           // txt.fontStyle = FontStyle.Bold;
-            backImg.sprite = backImages[1];
-            backImg.rectTransform.localScale = Vector3.Lerp(backImg.rectTransform.localScale, startScale * 1.1f, Time.deltaTime * 13);
+            // txt.fontStyle = FontStyle.Bold;
+            if (backImg != null)
+            {
+                backImg.sprite = backImages[1];
+                backImg.rectTransform.localScale = Vector3.Lerp(backImg.rectTransform.localScale, startScale * 1.1f, Time.deltaTime * 13);
+            }
         }
     }
 
@@ -78,18 +84,21 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (txt != null)
         {
-          //  txt.fontStyle = FontStyle.Normal;
-            backImg.sprite = backImages[0];
-            backImg.rectTransform.localScale = Vector3.Lerp(backImg.rectTransform.localScale, startScale, Time.deltaTime * 13);
+            //  txt.fontStyle = FontStyle.Normal;
+            if (backImg != null)
+            {
+                backImg.sprite = backImages[0];
+                backImg.rectTransform.localScale = Vector3.Lerp(backImg.rectTransform.localScale, startScale, Time.deltaTime * 13);
+            }
         }
     }
 
-    public void OnPointerEnter(PointerEventData pointerEventData)
+    public virtual void OnPointerEnter(PointerEventData pointerEventData)
     {
         isOver = true;
     }
 
-    public void OnPointerExit(PointerEventData pointerEventData)
+    public virtual void OnPointerExit(PointerEventData pointerEventData)
     {
         isOver = false;
     }

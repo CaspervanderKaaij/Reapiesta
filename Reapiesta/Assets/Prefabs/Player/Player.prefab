@@ -5014,7 +5014,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087299165683452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -462, y: -108, z: -535}
+  m_LocalPosition: {x: -6.1156693, y: 4, z: 15.452538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4662491380483334}
@@ -8004,7 +8004,8 @@ AudioSource:
   m_GameObject: {fileID: 1025580145550034}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 966e72a97eafd8347929a95cb4ad1b2b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: ee0195f2c3412a548a98eb55d63c5adc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -8099,7 +8100,8 @@ AudioSource:
   m_GameObject: {fileID: 1779453631411598}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243501825595095760, guid: 966e72a97eafd8347929a95cb4ad1b2b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 520649b8dc7e2214b84b36e23c8925e6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9238,7 +9240,7 @@ MonoBehaviour:
   anim: {fileID: 95191509103269340}
   controller: {fileID: 9100000, guid: 6c36a73e08c9196408e42bedfeaf8dad, type: 2}
   ghostText: {fileID: 224649748347053036}
-  ghostToKill: 3
+  ghostToKill: 50
   endBack: {fileID: 114884616988025258}
   endObjects:
   - {fileID: 1470308068032754}
@@ -11905,8 +11907,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 4239499717168918}
   m_AABB:
-    m_Center: {x: 0.0004043579, y: -0.05278015, z: -1.2233124}
-    m_Extent: {x: 1.6579515, y: 0.9991914, z: 1.8441181}
+    m_Center: {x: 0.00036621094, y: -0.05279541, z: -1.2232666}
+    m_Extent: {x: 1.6579515, y: 0.9991895, z: 1.8441176}
   m_DirtyAABB: 0
 --- !u!137 &137285765296396218
 SkinnedMeshRenderer:

@@ -16,7 +16,7 @@ public class MMNewGame : MenuButton
     void Start()
     {
         StartStuff();
-        StaticFunctions.PlayAudio(13,false);
+        StaticFunctions.PlayAudio(13, false);
     }
 
     void Update()
@@ -45,12 +45,15 @@ public class MMNewGame : MenuButton
             if (Input.GetButtonDown("Attack") == true)
             {
                 async.allowSceneActivation = true;
-           }
+            }
             else
             {
                 async.allowSceneActivation = false;
                 if (loadingCircle.activeSelf == true)
                 {
+                    SaveData save = FindObjectOfType<SaveData>();
+                    save.lives = 5;
+                    SaveLoad.SaveManager(save);
                     loadingText.text = "Press to continue.";
                     loadingCircle.SetActive(false);
                 }

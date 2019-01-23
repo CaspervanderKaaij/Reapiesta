@@ -15079,41 +15079,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224654194775348814, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Center.x
-      value: 0.00036621094
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.05279541
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Center.z
-      value: -1.2232666
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.9991895
-      objectReference: {fileID: 0}
-    - target: {fileID: 137147088721970194, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.z
-      value: 1.8441176
-      objectReference: {fileID: 0}
-    - target: {fileID: 114060457002375446, guid: 6837d688b2aed804eb576d069e314737,
-        type: 2}
-      propertyPath: ghostToKill
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6837d688b2aed804eb576d069e314737, type: 2}
   m_IsPrefabAsset: 0

@@ -18,7 +18,7 @@ public class MMGraphics : MenuButton
     void Update()
     {
         UpdateStuff();
-		ntxt.text = QualitySettings.names[QualitySettings.GetQualityLevel()] + "";
+        ntxt.text = QualitySettings.names[QualitySettings.GetQualityLevel()] + "";
     }
 
     public override void ClickEvent()

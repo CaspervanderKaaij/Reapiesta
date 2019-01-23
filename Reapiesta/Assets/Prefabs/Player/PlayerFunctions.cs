@@ -127,7 +127,7 @@ public class PlayerFunctions : MonoBehaviour
     public void GhostPot(int ghost)
     {
         ghostAmount++;
-        ghostText.localScale += new Vector3(-0.01f,0.5f,0);
+        ghostText.localScale += new Vector3(-0.01f, 0.5f, 0);
         ghostText.GetComponent<Text>().text = ghostAmount.ToString();
         if (ghostAmount >= ghostToKill)
         {
@@ -304,7 +304,7 @@ public class PlayerFunctions : MonoBehaviour
         grounded = false;
         RaycastHit hit;
         float input = Vector2.SqrMagnitude(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 2,LayerMask.GetMask("Default"),QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 2, LayerMask.GetMask("Default"), QueryTriggerInteraction.Ignore))
         {
             //            Debug.Log(hit.transform.name);
             grounded = true;
@@ -484,6 +484,7 @@ public class PlayerFunctions : MonoBehaviour
         {
             canDash = true;
             canSkateJump = true;
+            moveV3.y = gravityStrength / 10;
             //curAnim = Animation.Idle;
         }
         else if ((int)curAnim == 1 || (int)curAnim == 0 || (int)curAnim == 4)
@@ -491,7 +492,9 @@ public class PlayerFunctions : MonoBehaviour
             curAnim = Animation.Jump;
         }
 
-            if (moveV3.y < 0)
+        if (moveV3.y < 0)
+        {
+            if (moveV3.y < gravityStrength / 15)
             {
                 moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration * 2);
             }
@@ -499,7 +502,19 @@ public class PlayerFunctions : MonoBehaviour
             {
                 moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration);
             }
-        
+        }
+        else
+        {
+            if (moveV3.y > -gravityStrength / 30)
+            {
+                moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration);
+            }
+            else
+            {
+                moveV3.y = Mathf.MoveTowards(moveV3.y, gravityStrength, Time.deltaTime * fallDeceleration / 1.3f);
+            }
+        }
+
 
 
         if (Input.GetButtonDown("Jump") && cc.isGrounded == true)
