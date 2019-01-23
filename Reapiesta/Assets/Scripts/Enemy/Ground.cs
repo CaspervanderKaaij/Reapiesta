@@ -9,14 +9,23 @@ public class Ground : MonoBehaviour
     public Vector3 target;
     public GroundStats groundStats;
     public NavMeshAgent groundAgent;
+    public bool attacking;
     float mintargetDist;
+    #region Debug/Testing
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(target, 0.5f);
+    }
+    #endregion
     void Start()
     {
         groundAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         mintargetDist = groundStats.mintargetDist;
         moveState = MoveState.walking;
-        if(GetComponent<Range>() != null)
+        if (GetComponent<Range>() != null)
         {
             anim.SetBool("Trow", true);
         }
@@ -49,30 +58,36 @@ public class Ground : MonoBehaviour
                 groundAgent.speed = groundStats.runSpeed;
                 //set currentMovement speed to running speed
                 break;
-            case MoveState.attacking:
+        }
+        if (attacking)
+        {
             Vector3 newpos = transform.position;
-                Idle(newpos);
-                break;
+            Idle(newpos);
         }
     }
+
     void CheckDistance()
     {
         if (Vector3.Distance(transform.position, target) < mintargetDist)
         {
             moveState = MoveState.idle;
+            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0, Time.deltaTime * 2));
         }
     }
+
     void Idle(Vector3 newTarget)
     {
         groundAgent.SetDestination(newTarget);
         //set a enemy to a position
         //play an animation
-        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"),0,Time.deltaTime * 2));
+        groundAgent.isStopped = true;
+        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0, Time.deltaTime * 2));
     }
     void Walking()
     {
         groundAgent.SetDestination(target);
         // walk random around the area
-        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"),0.5f,Time.deltaTime * 2));
+        groundAgent.isStopped = false;
+        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 1, Time.deltaTime * 2));
     }
 }

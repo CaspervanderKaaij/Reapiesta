@@ -6,10 +6,14 @@ public class Melee : GeneralEnemyCode
 {
     public MeleeStats meleeStats;
     public Vector3 target;
+    public GameObject hurtBox;
 
 
     public override void Start()
     {
+        anim = GetComponent<Animator>();
+        hurtBox = transform.GetChild(1).gameObject;
+        hurtBox.SetActive(false);
         base.Start();
         targetDist = meleeStats.mintargetDist;
         currentTime = meleeStats.attackSpeed;
@@ -17,7 +21,15 @@ public class Melee : GeneralEnemyCode
 
     public override void Update()
     {
-        Timer(meleeStats.attackSpeed);
+        if (trigger)
+        {
+            Timer(meleeStats.attackSpeed);
+        }
+        if(currentTime <=0)
+        {
+            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0.5f, Time.deltaTime * 2));
+            hurtBox.SetActive(false);
+        }
         CheckDist(target, targetDist, GetComponent<Ground>().moveState);
     }
 
@@ -25,11 +37,7 @@ public class Melee : GeneralEnemyCode
     {
         if (action)
         {
-            anim.SetBool("Action", true);
-        }
-        else
-        {
-            anim.SetBool("Action", false);
+            hurtBox.SetActive(true);
         }
     }
 }
