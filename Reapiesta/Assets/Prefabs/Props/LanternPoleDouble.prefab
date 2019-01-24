@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4909515557456498}
   m_Layer: 0
-  m_Name: LanternDouble
+  m_Name: LanternPoleDouble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
