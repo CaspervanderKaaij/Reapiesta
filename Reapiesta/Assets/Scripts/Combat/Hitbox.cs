@@ -20,6 +20,8 @@ public class Hitbox : MonoBehaviour
     [SerializeField] bool playerTalk = false;
     [SerializeField] bool enemyHitSfx = false;
     [SerializeField] float healOverTime = 0;
+    public int hitSFX = 21;
+    public int deathSFX = 25;
 
     void Start()
     {
@@ -56,7 +58,8 @@ public class Hitbox : MonoBehaviour
         else if (hitShake == true)
         {
             cam.SmallShake();
-            StaticFunctions.PlayAudio(8, false);
+            StaticFunctions.PlayAudio(hitSFX, false);
+            StaticFunctions.PlayAudio(16, false);
             //Debug.Log("hi");
             if (StaticFunctions.paused == false)
             {
@@ -88,7 +91,8 @@ public class Hitbox : MonoBehaviour
     public virtual void Die()
     {
         Destroy(gameObject);
-        StaticFunctions.PlayAudio(2, false);
+        StaticFunctions.PlayAudio(deathSFX, false);
+        StaticFunctions.PlayAudio(16, false);
         if (playerTalk == true)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(0, 1);

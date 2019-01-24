@@ -59,7 +59,6 @@ public class ScytheAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack") && plyr.pf.curState == PlayerFunctions.State.Foot)
         {
-            StaticFunctions.PlayAudio(13, false);
             plyr.pf.curState = PlayerFunctions.State.Attack;
             plyr.pf.anim.Play("AttackStart", 0);
             firstAtkFrame = false;
@@ -91,6 +90,9 @@ public class ScytheAttack : MonoBehaviour
         //plyr.pf.cc.Move(plyr.transform.forward * Time.deltaTime * 10);
         if (plyr.pf.anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
+            if(hurtBox.activeSelf == false){
+                StaticFunctions.PlayAudio(22,false);
+            }
             hurtBox.SetActive(true);
             plyr.pf.cc.Move(plyr.transform.forward * Time.deltaTime * 20);
         }

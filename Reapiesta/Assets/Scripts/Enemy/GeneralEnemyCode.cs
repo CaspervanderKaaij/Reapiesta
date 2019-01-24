@@ -29,11 +29,11 @@ public class GeneralEnemyCode : MonoBehaviour
         // check the distance of your target
         if (trigger)
         {
-            print(targetDistCheck);
+           // print(targetDistCheck);
             targetDistCheck = Vector3.Distance(transform.position, target); 
             if (targetDistCheck <= minDist && state == MoveState.chasing)
             {
-                print(targetDistCheck);
+             //   print(targetDistCheck);
                 action = true;
                 // when your distance is close enough stop 
                 GetComponent<Ground>().groundAgent.isStopped = true;

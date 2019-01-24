@@ -66,6 +66,7 @@ public class MainWeapon : MonoBehaviour
         //	when click shoot
         if (Input.GetButtonDown("Attack") && IsInvoking("PlayerRot") == false && inSlowMo == false)
         {
+            CancelInvoke("ShootStuff");
             Invoke("ShootStuff", 0.1f);
             player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
         }
@@ -89,6 +90,7 @@ public class MainWeapon : MonoBehaviour
             }
             if (Input.GetButtonDown("Attack") && IsInvoking("PlayerRot") == false)
             {
+                CancelInvoke("ShootStuff");
                 Invoke("ShootStuff", 0.01f);
                 player.transform.eulerAngles = new Vector3(player.transform.eulerAngles.x, cam.transform.eulerAngles.y, player.transform.eulerAngles.z);
             }
@@ -119,6 +121,7 @@ public class MainWeapon : MonoBehaviour
         {
             pf.anim.Play("ShootSkate", 0, 0);
         }
+        StaticFunctions.PlayAudio(15,false);
         Instantiate(muzzleFlash, barrelEnd.position, barrelEnd.rotation, barrelEnd);
         Invoke("PlayerRot", 0.25f);
         if (inSlowMo == false)
@@ -130,7 +133,7 @@ public class MainWeapon : MonoBehaviour
         // trigger the UIFunction
         UIFunction();
         // if the raycast hit a thing
-        if (Physics.Raycast(camPos.position, camPos.forward, out hit, rayLenght, ~LayerMask.GetMask("IgnoreRaycast", "IgnoreCam", "IgnoreTrigger", "ClothCollider")))
+        if (Physics.Raycast(camPos.position + camPos.forward, camPos.forward, out hit, rayLenght, ~LayerMask.GetMask("IgnoreRaycast", "IgnoreCam", "IgnoreTrigger", "ClothCollider")))
         {
             //	move to the point the raycast hit an object
             //  addRigid.velocity = (hit.point - transform.position).normalized * forceAmount;

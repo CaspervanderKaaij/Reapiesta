@@ -39,6 +39,9 @@ public class Hurtbox : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(hitParticle, transform.position, Quaternion.identity);
+            if(gameObject.layer == 14){
+                StaticFunctions.PlayAudio(14,false);
+            }
         }
     }
 }
