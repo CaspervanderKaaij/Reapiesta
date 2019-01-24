@@ -1,16 +1,16 @@
 UI:
-ButtonHover
-ButtonClick
-ButtonClickDeny
+ButtonHover (0)
+ButtonClick (0)
+ButtonClickDeny (0)
 
 Enemies:
-Swipe attack
+Swipe attack (0)
 Attack Grunt (5) (0)
 Hurt Grunt (5) (0)
 Death Cry (5) (0)
 Bone impact (for when they fall apart) 0
-Ranged throw
-Ranged impacts dependant on items (glass for one)
+Ranged thrown (0)
+Ranged impacts dependant on items (glass for one) (0)
 Soul in-flight
 
 
@@ -18,12 +18,11 @@ Player:
 Scythe Swipe (0)
 Scythe Hit Enemy (0)
 Scythe Hit Terrain (0)
-Throw scythe /
-Thrown Scythe in-flight /
-Magnum Shot 
-Bullet impact
-Magnum Reload
-Teleport sound effects
+Throw scythe (0)
+Thrown Scythe in-flight (0)
+Magnum Shot (0)
+Bullet impact (0)
+Teleport sound effects 
 Skateboard activate
 Swap weapon
 Rocket boost
