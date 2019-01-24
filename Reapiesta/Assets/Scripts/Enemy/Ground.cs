@@ -76,7 +76,7 @@ public class Ground : MonoBehaviour
         else
         {
             moveState = MoveState.walking;
-            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 1, Time.deltaTime * 2));
+            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0.5f, Time.deltaTime * 2));
         }
     }
 
@@ -91,6 +91,13 @@ public class Ground : MonoBehaviour
     {
         groundAgent.SetDestination(target);
         // walk random around the area
-        anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 1, Time.deltaTime * 2));
+        if (moveState == MoveState.chasing)
+        {
+            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 1, Time.deltaTime * 2));
+        }
+        else
+        {
+            anim.SetFloat("Smooth", Mathf.Lerp(anim.GetFloat("Smooth"), 0.5f, Time.deltaTime * 2));
+        }
     }
 }

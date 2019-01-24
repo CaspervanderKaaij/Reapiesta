@@ -55,6 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4345684362054418}
+  - component: {fileID: 114614713769075454}
   m_Layer: 0
   m_Name: HouseLargeL
   m_TagString: Untagged
@@ -211,3 +212,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 6, z: 10}
   m_Center: {x: -0.0000076293945, y: 3, z: 0}
+--- !u!114 &114614713769075454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432453048979218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f220e5d1f55cd149a6487792c66c213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
