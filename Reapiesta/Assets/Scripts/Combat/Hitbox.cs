@@ -58,8 +58,8 @@ public class Hitbox : MonoBehaviour
         else if (hitShake == true)
         {
             cam.SmallShake();
-            StaticFunctions.PlayAudio(hitSFX, false);
-            StaticFunctions.PlayAudio(16, false);
+            StaticFunctions.PlayAudio(hitSFX, false,0);
+            StaticFunctions.PlayAudio(16, false,0);
             //Debug.Log("hi");
             if (StaticFunctions.paused == false)
             {
@@ -91,8 +91,8 @@ public class Hitbox : MonoBehaviour
     public virtual void Die()
     {
         Destroy(gameObject);
-        StaticFunctions.PlayAudio(deathSFX, false);
-        StaticFunctions.PlayAudio(16, false);
+        StaticFunctions.PlayAudio(deathSFX, false,0);
+        StaticFunctions.PlayAudio(16, false,0);
         if (playerTalk == true)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Talk>().Speak(0, 1);

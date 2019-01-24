@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
                 pf.FinalMove();
                 if (Input.GetButtonDown("Fire2"))
                 {
-                    StaticFunctions.PlayAudio(1, false);
+                    StaticFunctions.PlayAudio(22, false,0);
                     pf.curState = PlayerFunctions.State.Foot;
                     pf.StopSkateBoost();
                     canBoost = false;
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
                     if (pf.grounded == true)
                     {
                         pf.SkateBoost(true);
-                        StaticFunctions.PlayAudio(13, false);
+                        StaticFunctions.PlayAudio(33, false,0);
                         pp.profile.motionBlur.enabled = true;
                     }
                     else

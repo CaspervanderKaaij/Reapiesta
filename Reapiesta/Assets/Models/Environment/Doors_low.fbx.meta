@@ -1,32 +1,21 @@
 fileFormatVersion: 2
-guid: 7f90102c822fbdd4e9882db4541fb9d5
+guid: 521169b8a48519040bfeea369d5db914
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: WindowVar2_low
-    100004: WindowVar2Grate_low
-    100006: WindowVarr1_low
-    100008: Plane
+    100002: DoorVar1_low
+    100004: DoorVar2_low
     400000: //RootNode
-    400002: WindowVar2_low
-    400004: WindowVar2Grate_low
-    400006: WindowVarr1_low
-    400008: Plane
-    2100000: Windows
-    2100002: No Name
-    2300000: WindowVar2_low
-    2300002: WindowVar2Grate_low
-    2300004: WindowVarr1_low
-    2300006: Plane
-    3300000: WindowVar2_low
-    3300002: WindowVar2Grate_low
-    3300004: WindowVarr1_low
-    3300006: Plane
-    4300000: WindowVarr1_low
-    4300002: WindowVar2_low
-    4300004: WindowVar2Grate_low
-    4300006: Plane
+    400002: DoorVar1_low
+    400004: DoorVar2_low
+    2100000: Doors
+    2300000: DoorVar1_low
+    2300002: DoorVar2_low
+    3300000: DoorVar1_low
+    3300002: DoorVar2_low
+    4300000: DoorVar1_low
+    4300002: DoorVar2_low
   externalObjects: {}
   materials:
     importMaterials: 1

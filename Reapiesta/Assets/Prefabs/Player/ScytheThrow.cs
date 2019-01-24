@@ -77,14 +77,14 @@ public class ScytheThrow : MonoBehaviour
         if (Physics.Raycast(lastPos, lastPos - transform.position, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
         {
             curState = State.GoBack;
-            StaticFunctions.PlayAudio(22, false);
+            StaticFunctions.PlayAudio(22, false,0);
             GetComponent<AudioSource>().Play();
             cam.SmallShake();
         }
         else if (Physics.Raycast(transform.position, transform.position - lastPos, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
         {
             curState = State.GoBack;
-            StaticFunctions.PlayAudio(22, false);
+            StaticFunctions.PlayAudio(22, false,0);
             GetComponent<AudioSource>().Play();
             cam.SmallShake();
         }
@@ -132,7 +132,7 @@ public class ScytheThrow : MonoBehaviour
         {
             hurtbox.SetActive(true);
         }
-        StaticFunctions.PlayAudio(22, false);
+        StaticFunctions.PlayAudio(22, false,0);
         GetComponent<AudioSource>().Play();
         RaycastHit hit;
         if (Physics.Raycast(transform.position, cam.transform.forward, out hit, 10, ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast")))
@@ -164,7 +164,7 @@ public class ScytheThrow : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position) < 5)
         {
             scytheBack.SetActive(true);
-            StaticFunctions.PlayAudio(21, true);
+            StaticFunctions.PlayAudio(21, true,0);
             GetComponent<AudioSource>().Stop();
             curState = State.Disabled;
             cam.SmallShake();

@@ -11,7 +11,7 @@ public class StaticFunctions : MonoBehaviour
     public static bool paused = false;
 
 
-    public static void PlayAudio(int clip,bool printNames)
+    public static void PlayAudio(int clip,bool printNames,float sBlend)
     {
         if (audioPrefab == null)
         {
@@ -23,6 +23,7 @@ public class StaticFunctions : MonoBehaviour
         }
         AudioSource newClip = Instantiate(audioPrefab, Vector3.zero, Quaternion.identity).GetComponent<AudioSource>();
         newClip.clip = clips[clip];
+        newClip.spatialBlend = sBlend;
         newClip.Play();
         Destroy(newClip.gameObject, clips[clip].length);
         if(printNames == true){

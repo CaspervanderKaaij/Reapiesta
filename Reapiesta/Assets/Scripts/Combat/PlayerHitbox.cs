@@ -22,7 +22,7 @@ public class PlayerHitbox : Hitbox
         if (save.lives != 0)
         {
             StartCoroutine(DeathEvents());
-            StaticFunctions.PlayAudio(2,false);
+            StaticFunctions.PlayAudio(2,false,0);
             //Debug.Log(name + " died");
             if (dieShake == true)
             {
@@ -52,9 +52,9 @@ public class PlayerHitbox : Hitbox
         StaticFunctions.paused = true;
         yield return new WaitForSecondsRealtime(1.9f);
         deathUI.SetActive(true);
-        StaticFunctions.PlayAudio(13,false);
+        StaticFunctions.PlayAudio(13,false,0);
         yield return new WaitForSecondsRealtime(1.3f);
-        StaticFunctions.PlayAudio(3,false);
+        StaticFunctions.PlayAudio(3,false,0);
         yield return new WaitForSecondsRealtime(0.7f);
         save.lives--;
         SaveLoad.SaveManager(save);
@@ -73,13 +73,13 @@ public class PlayerHitbox : Hitbox
         StaticFunctions.paused = true;
         yield return new WaitForSecondsRealtime(1.3f);
         gameOverUI.SetActive(true);
-        StaticFunctions.PlayAudio(13,false);
+        StaticFunctions.PlayAudio(13,false,0);
         save.lives = livesAfterDeath;
         SaveLoad.SaveManager(save);
         yield return new WaitForSecondsRealtime(5f);
         Time.timeScale = 1;
         StaticFunctions.paused = false;
-        StaticFunctions.PlayAudio(13,false);
+        StaticFunctions.PlayAudio(13,false,0);
         StaticFunctions.LoadScene(0);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

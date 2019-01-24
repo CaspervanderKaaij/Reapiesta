@@ -91,7 +91,7 @@ public class ScytheAttack : MonoBehaviour
         if (plyr.pf.anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             if(hurtBox.activeSelf == false){
-                StaticFunctions.PlayAudio(22,false);
+                StaticFunctions.PlayAudio(22,false,0);
             }
             hurtBox.SetActive(true);
             plyr.pf.cc.Move(plyr.transform.forward * Time.deltaTime * 20);

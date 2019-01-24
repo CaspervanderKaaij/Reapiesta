@@ -193,7 +193,7 @@ public class PlayerFunctions : MonoBehaviour
             {
                 curAnim = Animation.SkateJump;
                 anim.Play("SkateFlip", 0);
-                StaticFunctions.PlayAudio(1, false);
+                StaticFunctions.PlayAudio(28, true,0);
                 curState = State.SkateBoard;
                 skateSpeed = 25;
                 Instantiate(particleSkateChange, transform.position, Quaternion.Euler(90, 0, 0), transform);
@@ -210,7 +210,7 @@ public class PlayerFunctions : MonoBehaviour
         {
             curAnim = Animation.Skate;
             anim.Play("HopOnSkateboard", 0);
-            StaticFunctions.PlayAudio(1, false);
+            StaticFunctions.PlayAudio(28, false,0);
             grounded = true;
             curState = State.SkateBoard;
             skateSpeed = 50;
@@ -229,7 +229,7 @@ public class PlayerFunctions : MonoBehaviour
     {
         if (canDash == true && Time.timeScale == 1)
         {
-            StaticFunctions.PlayAudio(13, false);
+            StaticFunctions.PlayAudio(13, false,0);
             stateBeforeDash = curState;
             curState = State.Dash;
             cam.MediumShake();
@@ -387,6 +387,7 @@ public class PlayerFunctions : MonoBehaviour
             justSkateGrounded = true;
             moveV3 += transform.TransformDirection(0, jumpHeight, 0);
             moveV3.y = skateJumpHeight;
+            StaticFunctions.PlayAudio(19, false,0);
             transform.position += new Vector3(0, 2.1f, 0);
         }
 
@@ -408,14 +409,14 @@ public class PlayerFunctions : MonoBehaviour
             }
             if (moveV3.y > 40)
             {
-                Instantiate(landingParticle, transform.position, transform.rotation, transform);
-                cam.HardShake();
-                StaticFunctions.PlayAudio(2, false);
+                // Instantiate(landingParticle, transform.position, transform.rotation, transform);
+                cam.MediumShake();
+                StaticFunctions.PlayAudio(19, false,0);
             }
             else
             {
-                cam.SmallShake();
-                StaticFunctions.PlayAudio(1, false);
+                cam.MediumShake();
+                StaticFunctions.PlayAudio(19, false,0);
             }
             skateSpeed /= 1.1f;
             transform.position = hit.point + new Vector3(0, 0.5f, 0);
@@ -438,6 +439,10 @@ public class PlayerFunctions : MonoBehaviour
         {
             // dashEffects[i].SetActive(true);
             dashEffects[i].GetComponent<ParticleSystem>().Play();
+            if (dashEffects[i].GetComponent<AudioSource>() != null && dashEffects[i].GetComponent<AudioSource>().isPlaying == false)
+            {
+                dashEffects[i].GetComponent<AudioSource>().Play();
+            }
         }
     }
 
@@ -447,6 +452,10 @@ public class PlayerFunctions : MonoBehaviour
         {
             //dashEffects[i].SetActive(false);
             dashEffects[i].GetComponent<ParticleSystem>().Stop();
+            if (dashEffects[i].GetComponent<AudioSource>() != null)
+            {
+                dashEffects[i].GetComponent<AudioSource>().Stop();
+            }
         }
         //   skateSpeed = minSkateSpeed / 3;
     }
@@ -482,6 +491,9 @@ public class PlayerFunctions : MonoBehaviour
 
         if (cc.isGrounded == true)
         {
+            if(moveV3.y < gravityStrength / 5){
+                cam.SmallShake();
+            }
             canDash = true;
             canSkateJump = true;
             moveV3.y = gravityStrength / 10;
@@ -519,6 +531,7 @@ public class PlayerFunctions : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && cc.isGrounded == true)
         {
+            StaticFunctions.PlayAudio(34,false,0);
             moveV3.y = jumpHeight;
             CancelInvoke("AntiBounceCancel");
             AntiBounceCancel();

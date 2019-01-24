@@ -109,7 +109,12 @@ public class ItemSwitch : MonoBehaviour
 
         if (curItem != lastItem)
         {
-            StaticFunctions.PlayAudio(0, false);
+            if (lastItem == specialDisable)
+            {
+                StaticFunctions.PlayAudio(31, false,0);
+            } else {
+                StaticFunctions.PlayAudio(32, false,0);
+            }
             ui.rectTransform.localScale = new Vector3(0.1f, 2, 1);
             Invoke("ScrollStopper", 0.3f);
         }
@@ -136,7 +141,7 @@ public class ItemSwitch : MonoBehaviour
             // special.SetActive(false);
             curItem++;
             ui.text = transform.GetChild(curItem).name;
-            Invoke("StopZooming",0.2f);
+            Invoke("StopZooming", 0.2f);
         }
         if (curItem == specialDisable && special.curState != ScytheThrow.State.Disabled)
         {

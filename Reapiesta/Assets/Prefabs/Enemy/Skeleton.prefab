@@ -2946,6 +2946,8 @@ MonoBehaviour:
   playerTalk: 1
   enemyHitSfx: 1
   healOverTime: 0
+  hitSFX: 21
+  deathSFX: 25
 --- !u!114 &114549974337024940
 MonoBehaviour:
   m_ObjectHideFlags: 1

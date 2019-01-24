@@ -63,7 +63,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public virtual void ClickEvent()
     {
-        StaticFunctions.PlayAudio(0, false);
+        StaticFunctions.PlayAudio(0, false,0);
         StaticFunctions.LoadScene(1);
     }
 

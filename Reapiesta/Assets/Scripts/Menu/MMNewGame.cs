@@ -16,7 +16,7 @@ public class MMNewGame : MenuButton
     void Start()
     {
         StartStuff();
-        StaticFunctions.PlayAudio(13, false);
+        StaticFunctions.PlayAudio(13, false,0);
     }
 
     void Update()
