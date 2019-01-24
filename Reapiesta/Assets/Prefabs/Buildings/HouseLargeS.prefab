@@ -74,7 +74,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4451065876454656}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4451065876454656
 Transform:
@@ -83,11 +83,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228327323126888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.21, y: 0, z: -26.7}
+  m_LocalPosition: {x: 437.0313, y: 0, z: 100.65573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4476591570214362}
   - {fileID: 4101041566681072}
+  - {fileID: 4476591570214362}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 96.892006, z: 0}
@@ -102,7 +102,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4451065876454656}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23101933708936048
 MeshRenderer:
@@ -223,3 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f220e5d1f55cd149a6487792c66c213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorBank: []
+  colorBank1: []
+  test1: {r: 0, g: 0, b: 0, a: 0}
+  test2: {r: 0, g: 0, b: 0, a: 0}
