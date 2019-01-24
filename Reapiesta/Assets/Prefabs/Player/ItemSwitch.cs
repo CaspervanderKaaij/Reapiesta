@@ -106,14 +106,21 @@ public class ItemSwitch : MonoBehaviour
         {
             scrollInUse = false;
         }
-
+        if (curItem == specialDisable && special.curState != ScytheThrow.State.Disabled)
+        {
+            curItem = 1;
+            lastItem = 1;
+            ui.text = transform.GetChild(curItem).name;
+        }
         if (curItem != lastItem)
         {
             if (lastItem == specialDisable)
             {
-                StaticFunctions.PlayAudio(31, false,0);
-            } else {
-                StaticFunctions.PlayAudio(32, false,0);
+                StaticFunctions.PlayAudio(31, false, 0);
+            }
+            else
+            {
+                StaticFunctions.PlayAudio(32, false, 0);
             }
             ui.rectTransform.localScale = new Vector3(0.1f, 2, 1);
             Invoke("ScrollStopper", 0.3f);
@@ -145,7 +152,8 @@ public class ItemSwitch : MonoBehaviour
         }
         if (curItem == specialDisable && special.curState != ScytheThrow.State.Disabled)
         {
-            Scroll();
+            // Scroll();
+            curItem = 1;
             ui.text = transform.GetChild(curItem).name;
         }
 

@@ -9,6 +9,7 @@ public class Talk : MonoBehaviour
     bool justPlaying = false;
     [HideInInspector] public float curPriority = 0;
     [SerializeField] float silentTime = 2;
+    [SerializeField] ParticleSystem talkParticle;
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -19,6 +20,12 @@ public class Talk : MonoBehaviour
         if (source.isPlaying == false && justPlaying == true && IsInvoking("DiaDelay") == false)
         {
             Invoke("DiaDelay", silentTime);
+        }
+        if(source.isPlaying == true && talkParticle != null){
+            talkParticle.Play();
+        }
+         if(source.isPlaying == false && talkParticle != null){
+            talkParticle.Stop();
         }
     }
 
