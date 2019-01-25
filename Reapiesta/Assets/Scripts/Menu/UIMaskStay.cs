@@ -13,21 +13,21 @@ public class UIMaskStay : MonoBehaviour
     {
         initialPos = transform.position;
         initialRot = transform.eulerAngles;
-      //  if (Application.isEditor == false)
-       // {
-            initialScale = transform.lossyScale;
-      //  }
+        //  if (Application.isEditor == false)
+        // {
+        initialScale = transform.lossyScale;
+        //  }
     }
 
     void LateUpdate()
     {
-      //  if (Application.isEditor == false)
-       // {
-            Transform oldParent = transform.parent;
-            transform.SetParent(null);
-            transform.localScale = initialScale;
-            transform.SetParent(oldParent);
-      //  }
+        //  if (Application.isEditor == false)
+        // {
+        Transform oldParent = transform.parent;
+        transform.SetParent(null);
+        transform.localScale = initialScale;
+        transform.SetParent(oldParent);
+        //  }
         transform.position = initialPos;
         transform.eulerAngles = initialRot;
     }

@@ -80,8 +80,11 @@ public class Cam : MonoBehaviour
 
     void Shake(float str)
     {
-        transform.position += new Vector3(Random.Range(-str, str), Random.Range(-str, str), Random.Range(-str, str));
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Random.Range(-str, str));
+        if (StaticFunctions.paused == false)
+        {
+            transform.position += new Vector3(Random.Range(-str, str), Random.Range(-str, str), Random.Range(-str, str));
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Random.Range(-str, str));
+        }
     }
 
     void NormalCam()
@@ -103,7 +106,10 @@ public class Cam : MonoBehaviour
             // helper.position = Vector3.Lerp(helper.position, player.position + transform.TransformDirection(offset), Time.deltaTime * speed / 2);
         }
         //  helper.eulerAngles += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.unscaledDeltaTime * rotSpeed;
-        angleGoal += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.unscaledDeltaTime * rotSpeed;
+        if (StaticFunctions.paused == false)
+        {
+            angleGoal += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.unscaledDeltaTime * rotSpeed;
+        }
         angleGoal.x -= 90;
         angleGoal = new Vector3(-Mathf.Clamp(-angleGoal.x, 40, 140), angleGoal.y, angleGoal.z);
         angleGoal.x += 90;
@@ -136,7 +142,10 @@ public class Cam : MonoBehaviour
     {
         helper.position = Vector3.Lerp(helper.position, player.position + transform.TransformDirection(offset[offsetType]), Time.deltaTime * speed * 2);
         //  helper.eulerAngles += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.unscaledDeltaTime * rotSpeed;
-        angleGoal += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.unscaledDeltaTime * rotSpeed;
+        if (StaticFunctions.paused == false)
+        {
+            angleGoal += new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.unscaledDeltaTime * rotSpeed;
+        }
         angleGoal.x -= 90;
         angleGoal = new Vector3(-Mathf.Clamp(-angleGoal.x, 40, 140), angleGoal.y, angleGoal.z);
         angleGoal.x += 90;

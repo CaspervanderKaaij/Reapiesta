@@ -141,6 +141,9 @@ public class PlayerFunctions : MonoBehaviour
         hurtbox.SetActive(false);
         StaticFunctions.paused = true;
         Time.timeScale = 0.1f;
+        if(FindObjectOfType<DontDestroy>() != null){
+        Destroy(FindObjectOfType<DontDestroy>().gameObject);
+        }
         yield return new WaitForSecondsRealtime(1.5f);
         hasEnded = true;
         yield return new WaitForSecondsRealtime(1.5f);
@@ -492,7 +495,7 @@ public class PlayerFunctions : MonoBehaviour
         if (cc.isGrounded == true)
         {
             if(moveV3.y < gravityStrength / 5){
-                cam.SmallShake();
+               // cam.SmallShake();
             }
             canDash = true;
             canSkateJump = true;

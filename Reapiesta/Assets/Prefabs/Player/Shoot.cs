@@ -18,7 +18,10 @@ public class Shoot : MonoBehaviour
 
     void Update()
     {
-        Controll();
+        if (StaticFunctions.paused == false)
+        {
+            Controll();
+        }
     }
 
     void Controll()

@@ -57,7 +57,7 @@ public class ScytheAttack : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetButtonDown("Attack") && plyr.pf.curState == PlayerFunctions.State.Foot)
+        if (Input.GetButtonDown("Attack") && plyr.pf.curState == PlayerFunctions.State.Foot && StaticFunctions.paused == false)
         {
             plyr.pf.curState = PlayerFunctions.State.Attack;
             plyr.pf.anim.Play("AttackStart", 0);

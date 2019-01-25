@@ -33,7 +33,7 @@ public class ItemSwitch : MonoBehaviour
     void LateUpdate()
     {
         ActivateSpecial();
-        if (IsInvoking("ScrollStopper") == false)
+        if (IsInvoking("ScrollStopper") == false && special.curState == ScytheThrow.State.Disabled && StaticFunctions.paused == false)
         {
             Scroll();
         }
@@ -143,7 +143,7 @@ public class ItemSwitch : MonoBehaviour
 
     void ActivateSpecial()
     {
-        if (curItem == specialDisable && Input.GetButtonDown("Throw"))
+        if (curItem == specialDisable && Input.GetButtonDown("NewThrow"))
         {
             // special.SetActive(false);
             curItem++;

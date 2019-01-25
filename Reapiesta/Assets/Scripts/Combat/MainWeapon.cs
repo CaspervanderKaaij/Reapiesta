@@ -34,8 +34,11 @@ public class MainWeapon : MonoBehaviour
 
     void Update()
     {
-        Shoot();
-        Reload();
+        if (StaticFunctions.paused == false)
+        {
+            Shoot();
+            Reload();
+        }
     }
 
     void Reload()
@@ -121,7 +124,7 @@ public class MainWeapon : MonoBehaviour
         {
             pf.anim.Play("ShootSkate", 0, 0);
         }
-        StaticFunctions.PlayAudio(15,false,0);
+        StaticFunctions.PlayAudio(15, false, 0);
         Instantiate(muzzleFlash, barrelEnd.position, barrelEnd.rotation, barrelEnd);
         Invoke("PlayerRot", 0.25f);
         if (inSlowMo == false)

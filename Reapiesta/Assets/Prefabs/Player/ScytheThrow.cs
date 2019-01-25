@@ -45,12 +45,36 @@ public class ScytheThrow : MonoBehaviour
         {
             case State.Disabled:
                 DisabledStuff();
-                if (Input.GetButtonDown("Throw") == true && pf.curState == PlayerFunctions.State.Foot && FindObjectOfType<ItemSwitch>().curItem == 0)
+                if (StaticFunctions.paused == false)
                 {
-                    Invoke("StartThrow",anticipationTime);
-                    pf.curState = PlayerFunctions.State.Attack;
-                    pf.anim.Play("ScytheThrow");
-                    Invoke("SetPlayerState", anticipationTime + recoverTime);
+                    if (Input.GetButtonDown("NewThrow") == true && pf.curState == PlayerFunctions.State.Foot)
+                    {
+                        Invoke("StartThrow", anticipationTime);
+                        pf.curState = PlayerFunctions.State.Attack;
+                        pf.anim.Play("ScytheThrow");
+                        Invoke("SetPlayerState", anticipationTime + recoverTime);
+                    }
+                    if (Input.GetButtonDown("Throw") == true && pf.curState == PlayerFunctions.State.Foot && FindObjectOfType<ItemSwitch>().curItem == 0)
+                    {
+                        Invoke("StartThrow", anticipationTime);
+                        pf.curState = PlayerFunctions.State.Attack;
+                        pf.anim.Play("ScytheThrow");
+                        Invoke("SetPlayerState", anticipationTime + recoverTime);
+                    }
+                    if (Input.GetButtonDown("Throw") == true && pf.curState == PlayerFunctions.State.SkateBoard && FindObjectOfType<ItemSwitch>().curItem == 0)
+                    {
+                        Invoke("StartThrow", anticipationTime);
+                        pf.curState = PlayerFunctions.State.Attack;
+                        pf.anim.Play("ScytheThrowSkate");
+                        Invoke("SetPlayerSkateState", anticipationTime + recoverTime);
+                    }
+                    if (Input.GetButtonDown("NewThrow") == true && pf.curState == PlayerFunctions.State.SkateBoard)
+                    {
+                        Invoke("StartThrow", anticipationTime);
+                        pf.curState = PlayerFunctions.State.Attack;
+                        pf.anim.Play("ScytheThrowSkate");
+                        Invoke("SetPlayerSkateState", anticipationTime + recoverTime);
+                    }
                 }
                 break;
             case State.Normal:
@@ -70,21 +94,25 @@ public class ScytheThrow : MonoBehaviour
     {
         pf.curState = PlayerFunctions.State.Foot;
     }
+    void SetPlayerSkateState()
+    {
+        pf.curState = PlayerFunctions.State.SkateBoard;
+    }
 
     void RayCollider()
     {
         RaycastHit hit;
-        if (Physics.Raycast(lastPos, lastPos - transform.position, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
+        if (Physics.Raycast(lastPos, lastPos - transform.position, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast", "IgnoreTrigger", "ClothCollider")))
         {
             curState = State.GoBack;
-            StaticFunctions.PlayAudio(22, false,0);
+            StaticFunctions.PlayAudio(22, false, 0);
             GetComponent<AudioSource>().Play();
             cam.SmallShake();
         }
-        else if (Physics.Raycast(transform.position, transform.position - lastPos, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast","IgnoreTrigger","ClothCollider")))
+        else if (Physics.Raycast(transform.position, transform.position - lastPos, out hit, Vector3.Distance(transform.position, lastPos), ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast", "IgnoreTrigger", "ClothCollider")))
         {
             curState = State.GoBack;
-            StaticFunctions.PlayAudio(22, false,0);
+            StaticFunctions.PlayAudio(22, false, 0);
             GetComponent<AudioSource>().Play();
             cam.SmallShake();
         }
@@ -132,7 +160,7 @@ public class ScytheThrow : MonoBehaviour
         {
             hurtbox.SetActive(true);
         }
-        StaticFunctions.PlayAudio(22, false,0);
+        StaticFunctions.PlayAudio(22, false, 0);
         GetComponent<AudioSource>().Play();
         RaycastHit hit;
         if (Physics.Raycast(transform.position, cam.transform.forward, out hit, 10, ~LayerMask.GetMask("IgnoreCam", "Ignore Raycast")))
@@ -164,7 +192,7 @@ public class ScytheThrow : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position) < 5)
         {
             scytheBack.SetActive(true);
-            StaticFunctions.PlayAudio(21, true,0);
+            StaticFunctions.PlayAudio(21, true, 0);
             GetComponent<AudioSource>().Stop();
             curState = State.Disabled;
             cam.SmallShake();
