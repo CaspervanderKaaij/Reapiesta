@@ -7,6 +7,8 @@ public class PauseSetter : MonoBehaviour
 
     bool active = false;
     [SerializeField] GameObject visual;
+    [SerializeField] GameObject normalMenu;
+    [SerializeField] GameObject optionMenu;
     void Start()
     {
         StaticFunctions.paused = false;
@@ -23,6 +25,8 @@ public class PauseSetter : MonoBehaviour
         {
             if (Input.GetButtonDown("Pause") == true && StaticFunctions.paused == false && Time.timeScale == 1)
             {
+                normalMenu.SetActive(true);
+                optionMenu.SetActive(false);
                 StaticFunctions.paused = true;
                 Time.timeScale = 0;
                 visual.SetActive(true);
