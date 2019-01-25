@@ -20,30 +20,38 @@ public static class SaveLoad
         stream.Close();
     }
 
-    public static uint LoadManager()
+    public static uint LoadManager(bool getLives)
     {
         if (File.Exists(Application.persistentDataPath + "/player.sav"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream stream = new FileStream(Application.persistentDataPath + "/player.sav", FileMode.Open);
 
-			ManagerData data = bf.Deserialize(stream) as ManagerData;
+            ManagerData data = bf.Deserialize(stream) as ManagerData;
 
-			stream.Close();
-			return data.lives;
-        } else {
-			//Debug.LogError("File does not exist.");
-			return 10;
-		}
+            stream.Close();
+            return data.lives;
+            if (getLives == false)
+            {
+                return data.enemiesLeft;
+            }
+        }
+        else
+        {
+            //Debug.LogError("File does not exist.");
+            return 5;
+        }
     }
 }
 [Serializable]
 public class ManagerData
 {
     public uint lives;
+    public uint enemiesLeft;
 
     public ManagerData(SaveData manager)
     {
         lives = manager.lives;
+        enemiesLeft = manager.enemiesLeft;
     }
 }

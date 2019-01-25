@@ -53,6 +53,7 @@ public class MMNewGame : MenuButton
                 {
                     SaveData save = FindObjectOfType<SaveData>();
                     save.lives = 5;
+                    save.enemiesLeft = 50;
                     SaveLoad.SaveManager(save);
                     loadingText.text = "Press to continue.";
                     loadingCircle.SetActive(false);

@@ -124,6 +124,7 @@ public class PlayerFunctions : MonoBehaviour
         anim.runtimeAnimatorController = controller;
         Cursor.visible = false;
         skateSound = skateBoard.GetComponent<AudioSource>();
+        //ghostToKill = (int)FindObjectOfType<SaveData>().enemiesLeft;
     }
 
     public void GhostPot(int ghost)
