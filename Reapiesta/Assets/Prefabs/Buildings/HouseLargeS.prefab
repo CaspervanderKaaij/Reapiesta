@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4451065876454656}
   - component: {fileID: 114678092054834808}
+  - component: {fileID: 65399362954188438}
   m_Layer: 0
   m_Name: HouseLargeS
   m_TagString: Untagged
@@ -396,8 +397,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228327323126888}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.3, y: 0, z: -36.08}
+  m_LocalRotation: {x: -0, y: 0.9184884, z: -0, w: 0.3954481}
+  m_LocalPosition: {x: 64.99954, y: 54.52, z: 276.49405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4101041566681072}
@@ -410,7 +411,7 @@ Transform:
   - {fileID: 4071986258583036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 96.892006, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 133.412, z: 0}
 --- !u!4 &4454034010962994
 Transform:
   m_ObjectHideFlags: 1
@@ -1046,6 +1047,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.351037, y: 0.42563963, z: 10.351037}
   m_Center: {x: -0.000015258789, y: 3.2128198, z: 0}
+--- !u!65 &65399362954188438
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228327323126888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.747491, y: 50.663746, z: 10.808768}
+  m_Center: {x: -21.982143, y: 24.831816, z: -8.386363}
 --- !u!65 &65945361660481068
 BoxCollider:
   m_ObjectHideFlags: 1
