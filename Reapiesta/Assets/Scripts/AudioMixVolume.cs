@@ -22,6 +22,7 @@ public class AudioMixVolume : MonoBehaviour
 
     public void SetVolume(float volume)
     {
+        volume = Mathf.Max(0.01f,volume);
 		volume *= generalMultiplier;
 		source.outputAudioMixerGroup.audioMixer.SetFloat("Volume" + source.outputAudioMixerGroup.name, Mathf.Log10(volume) * 20);
     }
